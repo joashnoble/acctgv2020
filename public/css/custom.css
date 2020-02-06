@@ -1,0 +1,9 @@
+.card-header-primary{
+    border-top:5px solid #03a9f4!important
+}
+.borderless td, .borderless th {
+    border: none;
+}
+ul.pagination{
+    margin-bottom: 0px;
+}
