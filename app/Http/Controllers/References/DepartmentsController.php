@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Models\References\Department;
 use App\Http\Resources\Reference;
 use Carbon\Carbon;
+
 class DepartmentsController extends Controller
 {
 
@@ -21,7 +22,9 @@ class DepartmentsController extends Controller
             ->where('is_deleted',FALSE)
             ->orderBy('department_name','desc')
             ;
-        return Reference::collection($departments->get());
+        return Reference::collection($departments->get())
+        ->response()
+        ->setStatusCode(200);
     }
 
     public function create(Request $request)
@@ -40,7 +43,9 @@ class DepartmentsController extends Controller
     public function show($id)
     {
         $department = Department::findOrFail($id);
-        return new Reference($department);
+        return ( new Reference($department))
+        ->response()
+        ->setStatusCode(200);
     }
 
     public function update(Request $request,$id)

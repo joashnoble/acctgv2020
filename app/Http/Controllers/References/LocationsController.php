@@ -21,7 +21,9 @@ class LocationsController extends Controller
             ->where('locations.is_deleted',FALSE)
             ->orderBy('location_name','asc')
             ;
-        return Reference::collection($location->get());
+        return Reference::collection($location->get())
+        ->response()
+        ->setStatusCode(200);
     }
 
     public function create(Request $request)
@@ -38,7 +40,9 @@ class LocationsController extends Controller
     public function show($id)
     {
         $location = Location::findOrFail($id);
-        return new Reference($location);
+        return ( new Reference($location) )
+        ->response()
+        ->setStatusCode(200);
     }
 
     public function update(Request $request,$id)

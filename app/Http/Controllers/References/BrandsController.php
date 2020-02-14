@@ -21,7 +21,9 @@ class BrandsController extends Controller
             ->where('is_deleted',FALSE)
             ->orderBy('brand_name','asc')
             ;
-        return Reference::collection($brands->get());
+        return Reference::collection($brands->get())            
+        ->response()
+        ->setStatusCode(200);
     }
 
     public function create(Request $request)
@@ -38,7 +40,9 @@ class BrandsController extends Controller
     public function show($id)
     {
         $brand = Brand::findOrFail($id);
-        return new Reference($brand);
+        return ( new Reference($brand) )
+        ->response()
+        ->setStatusCode(200);
     }
 
     public function update(Request $request,$id)

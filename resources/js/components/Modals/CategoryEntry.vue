@@ -45,6 +45,7 @@
     </b-modal>
 </template>
 <script>
+import deleteentry from '../modals/DeleteEntry'
 export default {
     name: 'categoryentry',
     props: ['type'],

@@ -21,7 +21,9 @@ class CategoriesController extends Controller
             ->where('is_deleted',FALSE)
             ->orderBy('category_name', 'asc')
             ;
-        return Reference::collection($categories->get());
+        return Reference::collection($categories->get())            
+        ->response()
+        ->setStatusCode(200);
     }
 
     public function create(Request $request)
@@ -40,7 +42,9 @@ class CategoriesController extends Controller
     public function show($id)
     {
         $category = Category::findOrFail($id);
-        return new Reference($category);
+        return ( new Reference($category))
+        ->response()
+        ->setStatusCode(200);
     }
 
     public function update(Request $request, $id)
@@ -64,7 +68,7 @@ class CategoriesController extends Controller
 
         return ( new Reference( $category ))
                 ->response()
-                ->setStatusCode(201);
+                ->setStatusCode(200);
     }    
     public function checkIfUsed()
     {

@@ -23,21 +23,31 @@ Vue.use(Notifications)
 
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 const axiosConfig = {
-  baseURL: 'http://larticles.test',
+  baseURL: 'http://accountingstandard2020.test',
   timeout: 30000
 }
 Vue.prototype.$http = axios.create(axiosConfig)
 
 // VUE COMPONENTS REGISTRATION
 // Vue.component('articles', require('./components/Articles.vue').default);
+Vue.component('vue-autonumeric', require('vue-autonumeric'))
 Vue.component('navbar', require('./components/Navbar.vue').default);
 Vue.component('select2', require('./select2/Select2.vue').default);
-Vue.component('banks', require('./components/References/Banks.vue').default);
+// Vue.component('treesview', require('./components/References/TreeViews.vue').default);
+// Vue.component('banks', require('./components/References/Banks.vue').default);
+// Vue.component('accountclasses', require('./components/References/AccountClasses.vue').default);
 // Vue.component('brands', require('./components/References/Brands.vue').default);
 // Vue.component('departments', require('./components/References/Departments.vue').default);
 // Vue.component('categories', require('./components/References/Categories.vue').default);
 // Vue.component('locations', require('./components/References/Locations.vue').default);
 // Vue.component('units', require('./components/References/Units.vue').default);
+
+// MASTERFILES
+// Vue.component('products', require('./components/Masterfiles/Products.vue').default);
+// Vue.component('suppliers', require('./components/Masterfiles/Suppliers.vue').default);
+// Vue.component('customers', require('./components/Masterfiles/Customers.vue').default);
+Vue.component('salespersons', require('./components/Masterfiles/Salespersons.vue').default);
+// Vue.component('accounttitles', require('./components/References/AccountTitles.vue').default);
 
 
 // APP

@@ -13,8 +13,9 @@ class BanksController extends Controller
 
     public function index()
     {
-        $banks = $this->GetBanks();
-        return Reference::collection($banks->get());
+        return Reference::collection($this->GetBanks()->get())
+        ->response()
+        ->setStatusCode(200);
     }
 
     public function create(Request $request)
@@ -26,14 +27,17 @@ class BanksController extends Controller
         $bank->account_type = $request->input('account_type');
         $bank->save();
 
-        return ( new Reference( $this->GetBanks($bank->id)->get()[0] ))
+        return ( new Reference( $this->GetBanks($bank->bank_id)->get()[0] ))
                 ->response()
                 ->setStatusCode(201);
     }
 
     public function show($id)
     {
-        return new Reference($this->GetBanks($id)->get()[0]);
+        return ( new Reference($this->GetBanks($id)->get()[0]))
+            ->response()
+            ->setStatusCode(200);
+        
     }
 
     public function update(Request $request,$id)

@@ -7,3 +7,7 @@
 ul.pagination{
     margin-bottom: 0px;
 }
+label.required:before {
+    content: '* ';
+    color: red;
+}

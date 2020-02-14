@@ -44,7 +44,7 @@
                     </b-form-input>
                 </b-form-group>
                 <b-form-group>
-                    <label class="required" for="tenant_id">Brand Name</label>
+                    <label class="required" for="account_type">Brand Name</label>
                         <select2
                             ref="account_type"
                             :allowClear="false"

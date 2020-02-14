@@ -3,9 +3,8 @@
 use Illuminate\Http\Request;
 
 /*  API Routes
-PLEASE REGISTER YOUR API BY PARENT MODULE THEN ALPHABETICALLY
-SEARCH YOUR API USING '// nameOfModule' or '// nameOfParentModule' e.g. // REFERENCES, //DEPARTMENTS
-
+PLEASE REGISTER YOUR API BY PARENT MODULE ALPHABETICALLY THEN MODULE ALPHABETICALLY
+SEARCH YOUR API USING '// NAMEOFPARENTMODULE' or '// NAMEOFMODULE' e.g. // REFERENCES, //DEPARTMENTS
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
@@ -13,6 +12,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 // REFERENCES
+
+// ACCOUNT TYPES
+Route::get('accounttypes','References\AccountTypesController@index');
 
 // BANKS
 Route::get('banks','References\BanksController@index');
@@ -63,10 +65,60 @@ Route::put('unit/delete/{id}', 'References\UnitsController@delete');
 Route::get('unitcheck/{id}', 'References\UnitsController@checkIfUsed');
 
 
-
-
-// PENDING
+// ACCOUNT CLASSES
 Route::get('accountclasses','References\AccountClassesController@index');
-Route::get('banks','References\BanksController@index');
-Route::get('products','References\ProductsController@index');
- 
+Route::post('accountclass', 'References\AccountClassesController@create');
+Route::get('accountclass/{id}','References\AccountClassesController@show');
+Route::put('accountclass/{id}', 'References\AccountClassesController@update');
+Route::put('accountclass/delete/{id}', 'References\AccountClassesController@delete');
+Route::get('accountclasscheck/{id}', 'References\AccountClassesController@checkIfUsed');
+
+
+// ACCOUNT TITLES
+Route::get('accounttitlesoptions','References\AccountTitlesController@options'); // MINIMAL LIST, USED FOR SELECT2 OPTIONS
+Route::get('accounttitlestree','References\AccountTitlesController@tree');
+Route::get('accounttitles','References\AccountTitlesController@index'); // COMPREHENSIVE LIST
+Route::post('accounttitle', 'References\AccountTitlesController@create');
+Route::get('accounttitle/{id}','References\AccountTitlesController@show');
+Route::put('accounttitle/{id}', 'References\AccountTitlesController@update');
+Route::put('accounttitle/delete/{id}', 'References\AccountTitlesController@delete');
+Route::get('accounttitlecheck/{id}', 'References\AccountTitlesController@checkIfUsed');
+
+// DOES NOT NEED OWN REFERENCE
+Route::get('taxtypes','References\TaxTypesController@index');
+Route::get('itemtypes','References\ItemTypesController@index');
+Route::get('customertypes','References\CustomerTypesController@index');
+
+// MASTERFILES
+
+// CUSTOMERS
+Route::get('customers','Masterfiles\CustomersController@index');
+Route::post('customer', 'Masterfiles\CustomersController@create');
+Route::get('customer/{id}','Masterfiles\CustomersController@show');
+Route::put('customer/{id}', 'Masterfiles\CustomersController@update');
+Route::put('customer/delete/{id}', 'Masterfiles\CustomersController@delete');
+Route::get('customercheck/{id}', 'Masterfiles\CustomersController@checkIfUsed');
+
+// PRODUCTS
+Route::get('products','Masterfiles\ProductsController@index');
+Route::post('product', 'Masterfiles\ProductsController@create');
+Route::get('product/{id}','Masterfiles\ProductsController@show');
+Route::put('product/{id}', 'Masterfiles\ProductsController@update');
+Route::put('product/delete/{id}', 'Masterfiles\ProductsController@delete');
+Route::get('productcheck/{id}', 'Masterfiles\ProductsController@checkIfUsed');
+
+// SALESPERSON SALES PERSON
+Route::get('salespersons','Masterfiles\SalespersonsController@index');
+Route::post('salesperson', 'Masterfiles\SalespersonsController@create');
+Route::get('salesperson/{id}','Masterfiles\SalespersonsController@show');
+Route::put('salesperson/{id}', 'Masterfiles\SalespersonsController@update');
+Route::put('salesperson/delete/{id}', 'Masterfiles\SalespersonsController@delete');
+Route::get('salespersoncheck/{id}', 'Masterfiles\SalespersonsController@checkIfUsed');
+
+// SUPPLIERS
+Route::get('suppliers','Masterfiles\SuppliersController@index');
+Route::post('supplier', 'Masterfiles\SuppliersController@create');
+Route::get('supplier/{id}','Masterfiles\SuppliersController@show');
+Route::put('supplier/{id}', 'Masterfiles\SuppliersController@update');
+Route::put('supplier/delete/{id}', 'Masterfiles\SuppliersController@delete');
+Route::get('suppliercheck/{id}', 'Masterfiles\SuppliersController@checkIfUsed');

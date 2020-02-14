@@ -22,7 +22,9 @@ class UnitsController extends Controller
             ->where('is_deleted',FALSE)
             ->orderBy('unit_name','asc')
             ;
-        return Reference::collection($units->get());
+        return Reference::collection($units->get())            
+        ->response()
+        ->setStatusCode(200);
     }
 
     public function create(Request $request)
@@ -41,7 +43,9 @@ class UnitsController extends Controller
     public function show($id)
     {
         $unit = Unit::findOrFail($id);
-        return new Reference($unit);
+        return (new Reference($unit))
+        ->response()
+        ->setStatusCode(200);
     }
 
     public function update(Request $request,$id)

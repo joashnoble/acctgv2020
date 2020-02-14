@@ -17,7 +17,13 @@
                 {{-- <units></units> --}}
                 {{-- <locations></locations> --}}
                 {{-- <brands></brands> --}}
-                <banks></banks>
+                {{-- <banks></banks> --}}
+                {{-- <accountclasses></accountclasses> --}}
+                {{-- <products></products> --}}
+                {{-- <suppliers></suppliers> --}}
+                {{-- <customers></customers> --}}
+                <salespersons></salespersons>
+                {{-- <accounttitles></accounttitles> --}}
             </div>
         </div>
         <script src="{{ asset('js/app.js') }}"></script>
