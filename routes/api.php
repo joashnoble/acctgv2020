@@ -122,3 +122,13 @@ Route::get('supplier/{id}','Masterfiles\SuppliersController@show');
 Route::put('supplier/{id}', 'Masterfiles\SuppliersController@update');
 Route::put('supplier/delete/{id}', 'Masterfiles\SuppliersController@delete');
 Route::get('suppliercheck/{id}', 'Masterfiles\SuppliersController@checkIfUsed');
+
+// SETTINGS
+
+// GENERAL CONFIGURATION
+Route::get('accountingperiod','Settings\AccountingPeriodController@index');
+Route::get('generalconfiguration','Settings\GeneralConfigurationController@index');
+Route::put('genconfcustomers', 'Settings\GeneralConfigurationController@customers'); // CUSTOMER SETTINGS
+Route::put('genconfsuppliers', 'Settings\GeneralConfigurationController@suppliers'); // SUPPLIER SETTINGS
+Route::put('genconfothers', 'Settings\GeneralConfigurationController@others'); // SUPPLIER SETTINGS
+Route::put('genconfinventory', 'Settings\GeneralConfigurationController@inventory'); // SUPPLIER SETTINGS

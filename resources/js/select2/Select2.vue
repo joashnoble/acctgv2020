@@ -23,7 +23,7 @@
 --->
 
 <template>
-    <b-form-select>
+    <b-form-select v-model="value">
         <slot></slot>
     </b-form-select>
 </template>

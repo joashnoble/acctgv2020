@@ -22,8 +22,9 @@
                 {{-- <products></products> --}}
                 {{-- <suppliers></suppliers> --}}
                 {{-- <customers></customers> --}}
-                <salespersons></salespersons>
+                {{-- <salespersons></salespersons> --}}
                 {{-- <accounttitles></accounttitles> --}}
+                <generalconfiguration></generalconfiguration>
             </div>
         </div>
         <script src="{{ asset('js/app.js') }}"></script>

@@ -1928,156 +1928,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Masterfiles/Salespersons.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Masterfiles/Salespersons.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modals_DeleteEntry__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../modals/DeleteEntry */ "./resources/js/components/modals/DeleteEntry.vue");
-/* harmony import */ var _modals_SalespersonEntry__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modals/SalespersonEntry */ "./resources/js/components/modals/SalespersonEntry.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'salespersons',
-  components: {
-    salespersonentry: _modals_SalespersonEntry__WEBPACK_IMPORTED_MODULE_1__["default"],
-    deleteentry: _modals_DeleteEntry__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
-  data: function data() {
-    return {
-      entryMode: 'Add',
-      showModalEntry: false,
-      showModalDelete: false,
-      tables: {
-        salespersons: {
-          fields: [{
-            key: 'salesperson_code',
-            label: 'Code',
-            sortable: true
-          }, {
-            key: 'full_name',
-            label: 'Name'
-          }, {
-            key: 'contact_no',
-            label: 'Contact Number'
-          }, {
-            key: 'action',
-            label: 'Action'
-          }],
-          items: []
-        }
-      },
-      // END OF TABLES
-      filters: {
-        salespersons: {
-          criteria: null
-        }
-      },
-      // END OF FILTERS
-      paginations: {
-        salespersons: {
-          totalRows: 0,
-          currentPage: 1,
-          perPage: 10
-        }
-      } // END OF PAGINATION
-
-    }; // END OF  RETURN
-  },
-  // END OF DATA
-  created: function created() {
-    this.fillTableList('salespersons');
-  },
-  // END OF CREATED
-  methods: {} // END OF METHODS
-
-}); // END OF EXPORT
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/modals/DeleteEntry.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/modals/DeleteEntry.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Settings/GeneralConfiguration.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Settings/GeneralConfiguration.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2115,52 +1969,521 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'deleteentry',
-  props: ['entity', 'primary_key', 'table'],
+  name: 'generalconfiguration',
+  components: {},
   data: function data() {
     return {
-      showModalDelete: false,
-      isSaving: false,
-      ref_id: null
-    };
+      tables: {
+        accountingperiod: {
+          fields: [{
+            key: 'date_covered',
+            label: 'Period',
+            sortable: true
+          }, {
+            key: 'date_time_closed',
+            label: 'Date and Time Closed'
+          }, {
+            key: 'user',
+            label: 'Closed By'
+          }, {
+            key: 'remarks',
+            label: 'Remarks'
+          }],
+          items: []
+        }
+      },
+      // END OF TABLES
+      filters: {
+        accountingperiod: {
+          criteria: null
+        }
+      },
+      // END OF FILTERS
+      paginations: {
+        accountingperiod: {
+          totalRows: 0,
+          currentPage: 1,
+          perPage: 5
+        }
+      },
+      // END OF PAGINATION
+      options: {
+        accounttitles: {
+          items: []
+        }
+      },
+      forms: {
+        suppliers: {
+          isSaving: false,
+          fields: {
+            input_tax_account_id: null,
+            payable_account_id: null,
+            payable_discount_account_id: null,
+            payment_to_supplier_id: null,
+            supplier_wtax_account_id: null
+          }
+        },
+        customers: {
+          isSaving: false,
+          fields: {
+            output_tax_account_id: null,
+            receivable_account_id: null,
+            receivable_discount_account_id: null,
+            payment_from_customer_id: null
+          }
+        },
+        others: {
+          isSaving: false,
+          fields: {
+            retained_earnings_id: null,
+            petty_cash_account_id: null,
+            depreciation_expense_debit_id: null,
+            fixed_asset_account_id: null,
+            depreciation_expense_credit_id: null
+          }
+        },
+        inventory: {
+          isSaving: false,
+          fields: {
+            sales_invoice_inventory: null,
+            cash_invoice_inventory: null,
+            dispatching_invoice_inventory: null
+          }
+        }
+      }
+    }; // END OF DATA RETURN
   },
+  // END OF DATA
+  created: function created() {
+    this.refreshSettings();
+    this.fillTableList('accountingperiod');
+  },
+  // END OF CREATED
   methods: {
-    onDeleteEntry: function onDeleteEntry() {
-      this.$parent.deleteEntityRef(this.entity.split(" ").join("").toLowerCase(), this.ref_id, true, this.table, this.primary_key, 'deleteentry');
-    },
-    setDelete: function () {
-      var _setDelete = _asyncToGenerator(
+    refreshSettings: function () {
+      var _refreshSettings = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var _this = this;
+
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return this.checkIfUsed(this.entity.split(" ").join("").toLowerCase(), id);
+                return this.$http.get('/api/generalconfiguration', {
+                  headers: {
+                    Authorization: 'Bearer ' + localStorage.getItem('token')
+                  }
+                }).then(function (response) {
+                  var records = response.data;
+                  _this.options.accounttitles.items = records.data.accounttitles;
+                })["catch"](function (error) {
+                  if (!error.response) return console.log(error);
+                });
 
               case 2:
-                _context.t0 = _context.sent;
-
-                if (!(_context.t0 == true)) {
-                  _context.next = 6;
-                  break;
-                }
-
-                this.$notify({
-                  type: 'error',
-                  group: 'notification',
-                  title: 'Error!',
-                  text: "Unable to delete, this record is being used by other transactions."
+                _context.next = 4;
+                return this.$http.get('/api/generalconfiguration', {
+                  headers: {
+                    Authorization: 'Bearer ' + localStorage.getItem('token')
+                  }
+                }).then(function (response) {
+                  var records = response.data;
+                  _this.forms.suppliers.fields = records.data.current;
+                  _this.forms.customers.fields = records.data.current;
+                  _this.forms.others.fields = records.data.current;
+                  _this.forms.inventory.fields = records.data.current;
+                })["catch"](function (error) {
+                  if (!error.response) return console.log(error);
                 });
-                return _context.abrupt("return");
 
-              case 6:
-                this.ref_id = id;
-                this.showModalDelete = true;
-
-              case 8:
+              case 4:
               case "end":
                 return _context.stop();
             }
@@ -2168,180 +2491,54 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee, this);
       }));
 
-      function setDelete(_x) {
-        return _setDelete.apply(this, arguments);
+      function refreshSettings() {
+        return _refreshSettings.apply(this, arguments);
       }
 
-      return setDelete;
-    }()
-  }
-});
+      return refreshSettings;
+    }(),
+    onSave: function onSave(utility) {
+      var _this2 = this;
 
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/modals/SalespersonEntry.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/modals/SalespersonEntry.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'salespersonentry',
-  props: ['type'],
-  data: function data() {
-    return {
-      entryMode: 'Add',
-      showModalEntry: false,
-      //if true show modal
-      options: {
-        departments: {
-          items: []
+      this.forms[utility].isSaving = true;
+      this.$http.put('api/genconf' + utility, this.forms[utility].fields, {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('token')
         }
-      },
-      forms: {
-        salesperson: {
-          isSaving: false,
-          fields: {
-            salesperson_id: null,
-            salesperson_code: null,
-            firstname: null,
-            middlename: null,
-            lastname: null,
-            contact_no: null,
-            department_id: null,
-            tin_no: null
+      }).then(function (response) {
+        _this2.forms[utility].isSaving = false;
+
+        _this2.$notify({
+          type: 'success',
+          group: 'notification',
+          title: 'Success!',
+          text: 'The ' + utility + ' settings have been successfully modified.'
+        });
+      })["catch"](function (error) {
+        _this2.forms[utility].isSaving = false;
+        if (!error.response) return;
+        var errors = error.response.data.errors;
+        var a = 0;
+
+        for (var key in errors) {
+          if (a == 0) {
+            _this2.focusElement(key, is_tab);
+
+            _this2.$notify({
+              type: 'error',
+              group: 'notification',
+              title: 'Error!',
+              text: errors[key][0]
+            });
           }
+
+          a++;
         }
-      },
-      row: []
-    };
-  },
-  created: function created() {
-    this.fillOptionsList('departments');
-  },
-  methods: {
-    onSalespersonEntry: function onSalespersonEntry() {
-      if (this.type == 'reference') {
-        if (this.entryMode == 'Add') {
-          this.$parent.createEntityRef('salesperson', true, 'salespersons', 'salespersonentry');
-        } else {
-          this.$parent.updateEntityRef('salesperson', 'salesperson_id', true, this.row, 'salespersonentry');
-        }
-      } else {
-        alert('NOT IN USE'); // this.$parent.createOptionsEntityRef('salesperson', 'showModalEntry', 'salespersons', this.type, 'salesperson_id', 'salespersonentry')
-      }
-    },
-    setUpdate: function setUpdate(data) {
-      this.row = data.item;
-      this.fillEntityForm('salesperson', data.item.salesperson_id, 'showModalEntry');
-      this.entryMode = 'Edit';
+      });
     }
-  }
-});
+  } // END OF METHODS
+
+}); // END OF EXPORT
 
 /***/ }),
 
@@ -79967,273 +80164,6 @@ var e=function(){return(e=Object.assign||function(e){for(var t,r=1,s=arguments.l
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Masterfiles/Salespersons.vue?vue&type=template&id=3a83a537&":
-/*!***************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Masterfiles/Salespersons.vue?vue&type=template&id=3a83a537& ***!
-  \***************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("notifications", { attrs: { group: "notification" } }),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "animated fadeIn" },
-        [
-          _c(
-            "b-card",
-            {
-              staticClass: "text-left card-header-primary",
-              attrs: { "border-variant": "default" },
-              scopedSlots: _vm._u([
-                {
-                  key: "footer",
-                  fn: function() {
-                    return [
-                      _c(
-                        "b-row",
-                        { attrs: { mb: "0" } },
-                        [
-                          _c(
-                            "b-col",
-                            { staticClass: "my-1 mb-0", attrs: { sm: "12" } },
-                            [
-                              _c("b-pagination", {
-                                attrs: {
-                                  mb: "0",
-                                  "total-rows":
-                                    _vm.paginations.salespersons.totalRows,
-                                  "per-page":
-                                    _vm.paginations.salespersons.perPage,
-                                  "prev-text": "Previous",
-                                  "next-text": "Next",
-                                  "hide-goto-end-buttons": "",
-                                  size: "sm",
-                                  align: "right"
-                                },
-                                model: {
-                                  value:
-                                    _vm.paginations.salespersons.currentPage,
-                                  callback: function($$v) {
-                                    _vm.$set(
-                                      _vm.paginations.salespersons,
-                                      "currentPage",
-                                      $$v
-                                    )
-                                  },
-                                  expression:
-                                    "paginations.salespersons.currentPage"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ]
-                  },
-                  proxy: true
-                }
-              ])
-            },
-            [
-              _c("h5", { attrs: { slot: "header" }, slot: "header" }, [
-                _c("span", [
-                  _vm._v("Salespersons\r\n                "),
-                  _c("small", [_c("b-icon-question")], 1)
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "b-row",
-                { staticClass: "mb-2" },
-                [
-                  _c(
-                    "b-col",
-                    { attrs: { sm: "2" } },
-                    [
-                      _c(
-                        "b-button",
-                        {
-                          staticClass: "mb-2",
-                          attrs: { variant: "success" },
-                          on: {
-                            click: function($event) {
-                              ;(_vm.$refs.salespersonentry.showModalEntry = true),
-                                (_vm.$refs.salespersonentry.entryMode = "Add"),
-                                _vm.$refs.salespersonentry.clearFields(
-                                  "salesperson"
-                                )
-                            }
-                          }
-                        },
-                        [
-                          _c("i", { staticClass: "fa fa-file-o" }),
-                          _vm._v("  New Salesperson\r\n                ")
-                        ]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("b-col", { attrs: { sm: "6" } }),
-                  _vm._v(" "),
-                  _c(
-                    "b-col",
-                    { attrs: { sm: "4" } },
-                    [
-                      _c(
-                        "b-input-group",
-                        {
-                          attrs: {
-                            "prepend-html":
-                              '<i class="fa fa-search"></i> &nbsp; Search'
-                          }
-                        },
-                        [
-                          _c("b-form-input", {
-                            attrs: {
-                              type: "text",
-                              placeholder: "Search",
-                              debounce: "250"
-                            },
-                            model: {
-                              value: _vm.filters.salespersons.criteria,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.filters.salespersons,
-                                  "criteria",
-                                  $$v
-                                )
-                              },
-                              expression: "filters.salespersons.criteria"
-                            }
-                          })
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-row",
-                { attrs: { mb: "2" } },
-                [
-                  _c("b-table", {
-                    attrs: {
-                      striped: "",
-                      bordered: "",
-                      borderless: "",
-                      "show-empty": "",
-                      fields: _vm.tables.salespersons.fields,
-                      items: _vm.tables.salespersons.items,
-                      filter: _vm.filters.salespersons.criteria,
-                      "current-page": _vm.paginations.salespersons.currentPage,
-                      "per-page": _vm.paginations.salespersons.perPage
-                    },
-                    on: {
-                      "update:items": function($event) {
-                        return _vm.$set(
-                          _vm.tables.salespersons,
-                          "items",
-                          $event
-                        )
-                      },
-                      filtered: function($event) {
-                        return _vm.onFiltered($event, "salespersons")
-                      }
-                    },
-                    scopedSlots: _vm._u([
-                      {
-                        key: "cell(action)",
-                        fn: function(data) {
-                          return [
-                            _c(
-                              "b-btn",
-                              {
-                                attrs: { size: "sm", variant: "primary" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.$refs.salespersonentry.setUpdate(
-                                      data
-                                    )
-                                  }
-                                }
-                              },
-                              [_c("b-icon-pencil")],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "b-btn",
-                              {
-                                attrs: { size: "sm", variant: "danger" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.$refs.deleteentry.setDelete(
-                                      data.item.salesperson_id
-                                    )
-                                  }
-                                }
-                              },
-                              [_c("b-icon-trash")],
-                              1
-                            )
-                          ]
-                        }
-                      }
-                    ])
-                  })
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("salespersonentry", {
-        ref: "salespersonentry",
-        attrs: { type: "reference" }
-      }),
-      _vm._v(" "),
-      _c("deleteentry", {
-        ref: "deleteentry",
-        attrs: {
-          entity: "salesperson",
-          table: "salespersons",
-          primary_key: "salesperson_id"
-        }
-      })
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Navbar.vue?vue&type=template&id=6dde423b&":
 /*!*********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Navbar.vue?vue&type=template&id=6dde423b& ***!
@@ -80275,10 +80205,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/modals/DeleteEntry.vue?vue&type=template&id=1fc26a6e&":
-/*!*********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/modals/DeleteEntry.vue?vue&type=template&id=1fc26a6e& ***!
-  \*********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Settings/GeneralConfiguration.vue?vue&type=template&id=6c80f81f&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Settings/GeneralConfiguration.vue?vue&type=template&id=6c80f81f& ***!
+  \********************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -80293,352 +80223,1672 @@ var render = function() {
   return _c(
     "div",
     [
+      _c("notifications", { attrs: { group: "notification" } }),
+      _vm._v(" "),
       _c(
-        "b-modal",
+        "b-card",
         {
-          attrs: { noCloseOnEsc: true, noCloseOnBackdrop: true },
-          model: {
-            value: _vm.showModalDelete,
-            callback: function($$v) {
-              _vm.showModalDelete = $$v
-            },
-            expression: "showModalDelete"
-          }
+          staticClass: "text-left card-header-primary",
+          attrs: { "border-variant": "default" }
         },
         [
-          _c("div", { attrs: { slot: "modal-title" }, slot: "modal-title" }, [
-            _vm._v(
-              "\n            Delete " +
-                _vm._s(_vm.capitalize(_vm.entity)) +
-                "\n        "
-            )
-          ]),
-          _vm._v(" "),
-          _c("b-col", { attrs: { lg: "12" } }, [
-            _vm._v(
-              "\n            Are you sure you want to delete this " +
-                _vm._s(_vm.entity.toLowerCase()) +
-                "?\n        "
-            )
+          _c("h5", { attrs: { slot: "header" }, slot: "header" }, [
+            _c("span", [
+              _vm._v("General Configuration\r\n                "),
+              _c("small", [_c("b-icon-question")], 1)
+            ])
           ]),
           _vm._v(" "),
           _c(
             "div",
-            { attrs: { slot: "modal-footer" }, slot: "modal-footer" },
             [
               _c(
-                "b-button",
-                {
-                  attrs: { disabled: _vm.isSaving, variant: "success" },
-                  on: { click: _vm.onDeleteEntry }
-                },
-                [
-                  _vm.isSaving
-                    ? _c("icon", { attrs: { name: "sync", spin: "" } })
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "fa fa-check" }),
-                  _vm._v("\n                Accept\n            ")
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-button",
-                {
-                  attrs: { variant: "danger" },
-                  on: {
-                    click: function($event) {
-                      _vm.showModalDelete = false
-                    }
-                  }
-                },
-                [_vm._v("Close")]
-              )
-            ],
-            1
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/modals/SalespersonEntry.vue?vue&type=template&id=7e9e1fbf&":
-/*!**************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/modals/SalespersonEntry.vue?vue&type=template&id=7e9e1fbf& ***!
-  \**************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "b-modal",
-    {
-      attrs: { noCloseOnEsc: true, noCloseOnBackdrop: true },
-      on: {
-        shown: function($event) {
-          return _vm.focusElement("salesperson_code")
-        }
-      },
-      model: {
-        value: _vm.showModalEntry,
-        callback: function($$v) {
-          _vm.showModalEntry = $$v
-        },
-        expression: "showModalEntry"
-      }
-    },
-    [
-      _c("div", { attrs: { slot: "modal-title" }, slot: "modal-title" }, [
-        _vm._v("\n        Salesperson  "),
-        _c("small", [_vm._v(" | " + _vm._s(_vm.entryMode))])
-      ]),
-      _vm._v(" "),
-      _c(
-        "b-col",
-        { attrs: { lg: "12" } },
-        [
-          _c(
-            "b-form",
-            { attrs: { autocomplete: "off" } },
-            [
-              _c(
-                "b-form-group",
+                "b-tabs",
+                { attrs: { "content-class": "mt-3" } },
                 [
                   _c(
-                    "label",
-                    {
-                      staticClass: "required",
-                      attrs: { for: "salesperson_code" }
-                    },
-                    [_vm._v("Code")]
-                  ),
-                  _vm._v(" "),
-                  _c("b-form-input", {
-                    ref: "salesperson_code",
-                    attrs: {
-                      id: "salesperson_code",
-                      debounce: "250",
-                      type: "text",
-                      placeholder: ""
-                    },
-                    model: {
-                      value: _vm.forms.salesperson.fields.salesperson_code,
-                      callback: function($$v) {
-                        _vm.$set(
-                          _vm.forms.salesperson.fields,
-                          "salesperson_code",
-                          $$v
-                        )
-                      },
-                      expression: "forms.salesperson.fields.salesperson_code"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-form-group",
-                [
-                  _c(
-                    "label",
-                    { staticClass: "required", attrs: { for: "firstname" } },
-                    [_vm._v("First Name")]
-                  ),
-                  _vm._v(" "),
-                  _c("b-form-input", {
-                    ref: "firstname",
-                    attrs: {
-                      id: "firstname",
-                      debounce: "250",
-                      type: "text",
-                      placeholder: ""
-                    },
-                    model: {
-                      value: _vm.forms.salesperson.fields.firstname,
-                      callback: function($$v) {
-                        _vm.$set(_vm.forms.salesperson.fields, "firstname", $$v)
-                      },
-                      expression: "forms.salesperson.fields.firstname"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-form-group",
-                [
-                  _c("label", { attrs: { for: "middlename" } }, [
-                    _vm._v("Middle Name")
-                  ]),
-                  _vm._v(" "),
-                  _c("b-form-input", {
-                    ref: "middlename",
-                    attrs: {
-                      id: "middlename",
-                      debounce: "250",
-                      type: "text",
-                      placeholder: ""
-                    },
-                    model: {
-                      value: _vm.forms.salesperson.fields.middlename,
-                      callback: function($$v) {
-                        _vm.$set(
-                          _vm.forms.salesperson.fields,
-                          "middlename",
-                          $$v
-                        )
-                      },
-                      expression: "forms.salesperson.fields.middlename"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-form-group",
-                [
-                  _c(
-                    "label",
-                    { staticClass: "required", attrs: { for: "lastname" } },
-                    [_vm._v("Last Name")]
-                  ),
-                  _vm._v(" "),
-                  _c("b-form-input", {
-                    ref: "lastname",
-                    attrs: {
-                      id: "lastname",
-                      debounce: "250",
-                      type: "text",
-                      placeholder: ""
-                    },
-                    model: {
-                      value: _vm.forms.salesperson.fields.lastname,
-                      callback: function($$v) {
-                        _vm.$set(_vm.forms.salesperson.fields, "lastname", $$v)
-                      },
-                      expression: "forms.salesperson.fields.lastname"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-form-group",
-                [
-                  _c("label", { attrs: { for: "contact_no" } }, [
-                    _vm._v("Contact Number")
-                  ]),
-                  _vm._v(" "),
-                  _c("b-form-input", {
-                    ref: "contact_no",
-                    attrs: {
-                      id: "contact_no",
-                      debounce: "250",
-                      type: "text",
-                      placeholder: ""
-                    },
-                    model: {
-                      value: _vm.forms.salesperson.fields.contact_no,
-                      callback: function($$v) {
-                        _vm.$set(
-                          _vm.forms.salesperson.fields,
-                          "contact_no",
-                          $$v
-                        )
-                      },
-                      expression: "forms.salesperson.fields.contact_no"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-form-group",
-                [
-                  _c("label", { attrs: { for: "tin_no" } }, [
-                    _vm._v("Tax Identification Number")
-                  ]),
-                  _vm._v(" "),
-                  _c("b-form-input", {
-                    ref: "tin_no",
-                    attrs: {
-                      id: "tin_no",
-                      debounce: "250",
-                      type: "text",
-                      placeholder: ""
-                    },
-                    model: {
-                      value: _vm.forms.salesperson.fields.tin_no,
-                      callback: function($$v) {
-                        _vm.$set(_vm.forms.salesperson.fields, "tin_no", $$v)
-                      },
-                      expression: "forms.salesperson.fields.tin_no"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-form-group",
-                [
-                  _c("label", { staticClass: "required" }, [
-                    _vm._v("Department")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "select2",
-                    {
-                      ref: "department_id",
-                      attrs: {
-                        allowClear: false,
-                        placeholder: "Select Department"
-                      },
-                      model: {
-                        value: _vm.forms.salesperson.fields.department_id,
-                        callback: function($$v) {
-                          _vm.$set(
-                            _vm.forms.salesperson.fields,
-                            "department_id",
-                            $$v
+                    "b-tab",
+                    { attrs: { title: "Supplier", active: "" } },
+                    [
+                      _c(
+                        "b-form",
+                        { attrs: { autocomplete: "off" } },
+                        [
+                          _c(
+                            "b-row",
+                            [
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "6" } },
+                                [
+                                  _c(
+                                    "b-form-group",
+                                    [
+                                      _c("label", [
+                                        _vm._v(" Input Tax Account ")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "select2",
+                                        {
+                                          attrs: {
+                                            allowClear: false,
+                                            placeholder: "",
+                                            value:
+                                              _vm.forms.suppliers.fields
+                                                .input_tax_account_id
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.forms.suppliers.fields
+                                                .input_tax_account_id,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.forms.suppliers.fields,
+                                                "input_tax_account_id",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "forms.suppliers.fields.input_tax_account_id"
+                                          }
+                                        },
+                                        _vm._l(
+                                          _vm.options.accounttitles.items,
+                                          function(accounttitle) {
+                                            return _c(
+                                              "option",
+                                              {
+                                                key: accounttitle.account_id,
+                                                domProps: {
+                                                  value: accounttitle.account_id
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    accounttitle.account_title
+                                                  )
+                                                )
+                                              ]
+                                            )
+                                          }
+                                        ),
+                                        0
+                                      ),
+                                      _vm._v(" "),
+                                      _c("small", [
+                                        _c("i", [
+                                          _vm._v(
+                                            "Input Tax is generally apply to the purchases of goods and services."
+                                          )
+                                        ])
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "6" } },
+                                [
+                                  _c(
+                                    "b-form-group",
+                                    [
+                                      _c("label", [
+                                        _vm._v(" Payable to Supplier  ")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "select2",
+                                        {
+                                          attrs: {
+                                            allowClear: false,
+                                            placeholder: "",
+                                            value:
+                                              _vm.forms.suppliers.fields
+                                                .payable_account_id
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.forms.suppliers.fields
+                                                .payable_account_id,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.forms.suppliers.fields,
+                                                "payable_account_id",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "forms.suppliers.fields.payable_account_id"
+                                          }
+                                        },
+                                        _vm._l(
+                                          _vm.options.accounttitles.items,
+                                          function(accounttitle) {
+                                            return _c(
+                                              "option",
+                                              {
+                                                key: accounttitle.account_id,
+                                                domProps: {
+                                                  value: accounttitle.account_id
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    accounttitle.account_title
+                                                  )
+                                                )
+                                              ]
+                                            )
+                                          }
+                                        ),
+                                        0
+                                      ),
+                                      _vm._v(" "),
+                                      _c("small", [
+                                        _c("i", [
+                                          _vm._v(
+                                            "Account that is used to represent the amount owes by the company."
+                                          )
+                                        ])
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-row",
+                            [
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "6" } },
+                                [
+                                  _c(
+                                    "b-form-group",
+                                    [
+                                      _c("label", [
+                                        _vm._v(" Discount from Supplier  ")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "select2",
+                                        {
+                                          attrs: {
+                                            allowClear: false,
+                                            placeholder: "",
+                                            value:
+                                              _vm.forms.suppliers.fields
+                                                .payable_discount_account_id
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.forms.suppliers.fields
+                                                .payable_discount_account_id,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.forms.suppliers.fields,
+                                                "payable_discount_account_id",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "forms.suppliers.fields.payable_discount_account_id"
+                                          }
+                                        },
+                                        _vm._l(
+                                          _vm.options.accounttitles.items,
+                                          function(accounttitle) {
+                                            return _c(
+                                              "option",
+                                              {
+                                                key: accounttitle.account_id,
+                                                domProps: {
+                                                  value: accounttitle.account_id
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    accounttitle.account_title
+                                                  )
+                                                )
+                                              ]
+                                            )
+                                          }
+                                        ),
+                                        0
+                                      ),
+                                      _vm._v(" "),
+                                      _c("small", [
+                                        _c("i", [
+                                          _vm._v(
+                                            "Account that is used to represent the discount from the supplier."
+                                          )
+                                        ])
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "6" } },
+                                [
+                                  _c(
+                                    "b-form-group",
+                                    [
+                                      _c("label", [
+                                        _vm._v(" Payment to Supplier ")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "select2",
+                                        {
+                                          ref: "brand_id",
+                                          attrs: {
+                                            allowClear: false,
+                                            placeholder: "",
+                                            value:
+                                              _vm.forms.suppliers.fields
+                                                .payment_to_supplier_id
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.forms.suppliers.fields
+                                                .payment_to_supplier_id,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.forms.suppliers.fields,
+                                                "payment_to_supplier_id",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "forms.suppliers.fields.payment_to_supplier_id"
+                                          }
+                                        },
+                                        _vm._l(
+                                          _vm.options.accounttitles.items,
+                                          function(accounttitle) {
+                                            return _c(
+                                              "option",
+                                              {
+                                                key: accounttitle.account_id,
+                                                domProps: {
+                                                  value: accounttitle.account_id
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    accounttitle.account_title
+                                                  )
+                                                )
+                                              ]
+                                            )
+                                          }
+                                        ),
+                                        0
+                                      ),
+                                      _vm._v(" "),
+                                      _c("small", [
+                                        _c("i", [
+                                          _vm._v(
+                                            "Please select the account where payment to supplier will be credited."
+                                          )
+                                        ])
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-row",
+                            [
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "6" } },
+                                [
+                                  _c(
+                                    "b-form-group",
+                                    [
+                                      _c("label", [
+                                        _vm._v(" Withholding Tax Account ")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "select2",
+                                        {
+                                          ref: "brand_id",
+                                          attrs: {
+                                            allowClear: false,
+                                            placeholder: "",
+                                            valuee:
+                                              _vm.forms.suppliers.fields
+                                                .supplier_wtax_account_id
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.forms.suppliers.fields
+                                                .supplier_wtax_account_id,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.forms.suppliers.fields,
+                                                "supplier_wtax_account_id",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "forms.suppliers.fields.supplier_wtax_account_id"
+                                          }
+                                        },
+                                        _vm._l(
+                                          _vm.options.accounttitles.items,
+                                          function(accounttitle) {
+                                            return _c(
+                                              "option",
+                                              {
+                                                key: accounttitle.account_id,
+                                                domProps: {
+                                                  value: accounttitle.account_id
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    accounttitle.account_title
+                                                  )
+                                                )
+                                              ]
+                                            )
+                                          }
+                                        ),
+                                        0
+                                      ),
+                                      _vm._v(" "),
+                                      _c("small", [
+                                        _c("i", [
+                                          _vm._v(
+                                            "Please select the account where supplier withholding tax payables will be credited.."
+                                          )
+                                        ])
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-row",
+                            { staticClass: "pull-right mt-2" },
+                            [
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "12" } },
+                                [
+                                  _c(
+                                    "b-button",
+                                    {
+                                      attrs: {
+                                        disabled: _vm.forms.suppliers.isSaving,
+                                        variant: "success"
+                                      },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.onSave("suppliers")
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm.forms.suppliers.isSaving
+                                        ? _c("b-spinner", {
+                                            attrs: {
+                                              small: "",
+                                              variant: "light",
+                                              label: "Spinning"
+                                            }
+                                          })
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _c("i", { staticClass: "fa fa-check" }),
+                                      _vm._v(
+                                        "\r\n                                    Save Supplier Configurations\r\n                                "
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
                           )
-                        },
-                        expression: "forms.salesperson.fields.department_id"
-                      }
-                    },
-                    _vm._l(_vm.options.departments.items, function(department) {
-                      return _c(
-                        "option",
-                        {
-                          key: department.department_id,
-                          domProps: { value: department.department_id }
-                        },
-                        [_vm._v(_vm._s(department.department_name))]
+                        ],
+                        1
                       )
-                    }),
-                    0
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-tab",
+                    { attrs: { title: "Customer" } },
+                    [
+                      _c(
+                        "b-form",
+                        { attrs: { autocomplete: "off" } },
+                        [
+                          _c(
+                            "b-row",
+                            [
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "6" } },
+                                [
+                                  _c(
+                                    "b-form-group",
+                                    [
+                                      _c("label", [
+                                        _vm._v(" Output Tax Account ")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "select2",
+                                        {
+                                          attrs: {
+                                            allowClear: false,
+                                            placeholder: "",
+                                            value:
+                                              _vm.forms.customers.fields
+                                                .output_tax_account_id
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.forms.customers.fields
+                                                .output_tax_account_id,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.forms.customers.fields,
+                                                "output_tax_account_id",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "forms.customers.fields.output_tax_account_id"
+                                          }
+                                        },
+                                        _vm._l(
+                                          _vm.options.accounttitles.items,
+                                          function(accounttitle) {
+                                            return _c(
+                                              "option",
+                                              {
+                                                key: accounttitle.account_id,
+                                                domProps: {
+                                                  value: accounttitle.account_id
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    accounttitle.account_title
+                                                  )
+                                                )
+                                              ]
+                                            )
+                                          }
+                                        ),
+                                        0
+                                      ),
+                                      _vm._v(" "),
+                                      _c("small", [
+                                        _c("i", [
+                                          _vm._v(
+                                            "Output tax is the amount charge on your own sales if you are registered as Vatted."
+                                          )
+                                        ])
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "6" } },
+                                [
+                                  _c(
+                                    "b-form-group",
+                                    [
+                                      _c("label", [
+                                        _vm._v(" Receivable from Customer  ")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "select2",
+                                        {
+                                          ref: "brand_id",
+                                          attrs: {
+                                            allowClear: false,
+                                            placeholder: "",
+                                            value:
+                                              _vm.forms.customers.fields
+                                                .receivable_account_id
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.forms.customers.fields
+                                                .receivable_account_id,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.forms.customers.fields,
+                                                "receivable_account_id",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "forms.customers.fields.receivable_account_id"
+                                          }
+                                        },
+                                        _vm._l(
+                                          _vm.options.accounttitles.items,
+                                          function(accounttitle) {
+                                            return _c(
+                                              "option",
+                                              {
+                                                key: accounttitle.account_id,
+                                                domProps: {
+                                                  value: accounttitle.account_id
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    accounttitle.account_title
+                                                  )
+                                                )
+                                              ]
+                                            )
+                                          }
+                                        ),
+                                        0
+                                      ),
+                                      _vm._v(" "),
+                                      _c("small", [
+                                        _c("i", [
+                                          _vm._v(
+                                            "Account that represents the amount of goods and services credited by customer."
+                                          )
+                                        ])
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-row",
+                            [
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "6" } },
+                                [
+                                  _c(
+                                    "b-form-group",
+                                    [
+                                      _c("label", [
+                                        _vm._v("  Discount to Customer  ")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "select2",
+                                        {
+                                          attrs: {
+                                            allowClear: false,
+                                            placeholder: "",
+                                            value:
+                                              _vm.forms.customers.fields
+                                                .receivable_discount_account_id
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.forms.customers.fields
+                                                .receivable_discount_account_id,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.forms.customers.fields,
+                                                "receivable_discount_account_id",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "forms.customers.fields.receivable_discount_account_id"
+                                          }
+                                        },
+                                        _vm._l(
+                                          _vm.options.accounttitles.items,
+                                          function(accounttitle) {
+                                            return _c(
+                                              "option",
+                                              {
+                                                key: accounttitle.account_id,
+                                                domProps: {
+                                                  value: accounttitle.account_id
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    accounttitle.account_title
+                                                  )
+                                                )
+                                              ]
+                                            )
+                                          }
+                                        ),
+                                        0
+                                      ),
+                                      _vm._v(" "),
+                                      _c("small", [
+                                        _c("i", [
+                                          _vm._v(
+                                            "Account that is used to represent the discount you give to customers."
+                                          )
+                                        ])
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "6" } },
+                                [
+                                  _c(
+                                    "b-form-group",
+                                    [
+                                      _c("label", [
+                                        _vm._v(" Collection Account ")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "select2",
+                                        {
+                                          ref: "brand_id",
+                                          attrs: {
+                                            allowClear: false,
+                                            placeholder: "",
+                                            value:
+                                              _vm.forms.customers.fields
+                                                .payment_from_customer_id
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.forms.customers.fields
+                                                .payment_from_customer_id,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.forms.customers.fields,
+                                                "payment_from_customer_id",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "forms.customers.fields.payment_from_customer_id"
+                                          }
+                                        },
+                                        _vm._l(
+                                          _vm.options.accounttitles.items,
+                                          function(accounttitle) {
+                                            return _c(
+                                              "option",
+                                              {
+                                                key: accounttitle.account_id,
+                                                domProps: {
+                                                  value: accounttitle.account_id
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    accounttitle.account_title
+                                                  )
+                                                )
+                                              ]
+                                            )
+                                          }
+                                        ),
+                                        0
+                                      ),
+                                      _vm._v(" "),
+                                      _c("small", [
+                                        _c("i", [
+                                          _vm._v(
+                                            "Please select the account where payment of customer will be posted."
+                                          )
+                                        ])
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-row",
+                            { staticClass: "pull-right mt-2" },
+                            [
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "12" } },
+                                [
+                                  _c(
+                                    "b-button",
+                                    {
+                                      attrs: {
+                                        disabled: _vm.forms.customers.isSaving,
+                                        variant: "success"
+                                      },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.onSave("customers")
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm.forms.customers.isSaving
+                                        ? _c("b-spinner", {
+                                            attrs: {
+                                              small: "",
+                                              variant: "light",
+                                              label: "Spinning"
+                                            }
+                                          })
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _c("i", { staticClass: "fa fa-check" }),
+                                      _vm._v(
+                                        "\r\n                                    Save Customer Configurations\r\n                                "
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-tab",
+                    { attrs: { title: "Inventory" } },
+                    [
+                      _c(
+                        "b-form",
+                        { attrs: { autocomplete: "off" } },
+                        [
+                          _c(
+                            "b-row",
+                            { staticClass: "mb-2" },
+                            [
+                              _c("b-col", { attrs: { sm: "12" } }, [
+                                _c("span", [_vm._v("INVENTORY COMPUTATION")]),
+                                _c("br"),
+                                _vm._v(" "),
+                                _c("i", [
+                                  _c("small", [
+                                    _vm._v(
+                                      "Select if Sales, Cash, and Dispatching Invoices are included in the computation of inventory."
+                                    )
+                                  ])
+                                ])
+                              ])
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-row",
+                            [
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "4" } },
+                                [
+                                  _c(
+                                    "b-form-group",
+                                    [
+                                      _c("label", [_vm._v(" Sales Invoices ")]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "select2",
+                                        {
+                                          ref: "brand_id",
+                                          attrs: {
+                                            allowClear: false,
+                                            placeholder: "",
+                                            value:
+                                              _vm.forms.inventory.fields
+                                                .sales_invoice_inventory
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.forms.inventory.fields
+                                                .sales_invoice_inventory,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.forms.inventory.fields,
+                                                "sales_invoice_inventory",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "forms.inventory.fields.sales_invoice_inventory"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "1" } },
+                                            [_vm._v("Enable")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "0" } },
+                                            [_vm._v("Disable")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "4" } },
+                                [
+                                  _c(
+                                    "b-form-group",
+                                    [
+                                      _c("label", [_vm._v(" Cash Invoices ")]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "select2",
+                                        {
+                                          ref: "brand_id",
+                                          attrs: {
+                                            allowClear: false,
+                                            placeholder: "",
+                                            value:
+                                              _vm.forms.inventory.fields
+                                                .cash_invoice_inventory
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.forms.inventory.fields
+                                                .cash_invoice_inventory,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.forms.inventory.fields,
+                                                "cash_invoice_inventory",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "forms.inventory.fields.cash_invoice_inventory"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "1" } },
+                                            [_vm._v("Enable")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "0" } },
+                                            [_vm._v("Disable")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "4" } },
+                                [
+                                  _c(
+                                    "b-form-group",
+                                    [
+                                      _c("label", [
+                                        _vm._v(" Dispatching Invoices ")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "select2",
+                                        {
+                                          ref: "brand_id",
+                                          attrs: {
+                                            allowClear: false,
+                                            placeholder: "",
+                                            value:
+                                              _vm.forms.inventory.fields
+                                                .dispatching_invoice_inventory
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.forms.inventory.fields
+                                                .dispatching_invoice_inventory,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.forms.inventory.fields,
+                                                "dispatching_invoice_inventory",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "forms.inventory.fields.dispatching_invoice_inventory"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "1" } },
+                                            [_vm._v("Enable")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "0" } },
+                                            [_vm._v("Disable")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-row",
+                            { staticClass: "pull-right mt-2" },
+                            [
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "12" } },
+                                [
+                                  _c(
+                                    "b-button",
+                                    {
+                                      attrs: {
+                                        disabled: _vm.forms.inventory.isSaving,
+                                        variant: "success"
+                                      },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.onSave("inventory")
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm.forms.inventory.isSaving
+                                        ? _c("b-spinner", {
+                                            attrs: {
+                                              small: "",
+                                              variant: "light",
+                                              label: "Spinning"
+                                            }
+                                          })
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _c("i", { staticClass: "fa fa-check" }),
+                                      _vm._v(
+                                        "\r\n                                    Save Inventory Configurations\r\n                                "
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-tab",
+                    { attrs: { title: "Other Accounts" } },
+                    [
+                      _c(
+                        "b-form",
+                        { attrs: { autocomplete: "off" } },
+                        [
+                          _c(
+                            "b-row",
+                            [
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "6", hidden: "" } },
+                                [
+                                  _c(
+                                    "b-form-group",
+                                    [
+                                      _c("label", [
+                                        _vm._v(" Retained Earnings ")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "select2",
+                                        {
+                                          attrs: {
+                                            allowClear: false,
+                                            placeholder: "",
+                                            value:
+                                              _vm.forms.others.fields
+                                                .retained_earnings_id
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.forms.others.fields
+                                                .retained_earnings_id,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.forms.others.fields,
+                                                "retained_earnings_id",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "forms.others.fields.retained_earnings_id"
+                                          }
+                                        },
+                                        _vm._l(
+                                          _vm.options.accounttitles.items,
+                                          function(accounttitle) {
+                                            return _c(
+                                              "option",
+                                              {
+                                                key: accounttitle.account_id,
+                                                domProps: {
+                                                  value: accounttitle.account_id
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    accounttitle.account_title
+                                                  )
+                                                )
+                                              ]
+                                            )
+                                          }
+                                        ),
+                                        0
+                                      ),
+                                      _vm._v(" "),
+                                      _c("small", [
+                                        _c("i", [
+                                          _vm._v(
+                                            "Please select the account where net income will be forwarded."
+                                          )
+                                        ])
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "6" } },
+                                [
+                                  _c(
+                                    "b-form-group",
+                                    [
+                                      _c("label", [_vm._v(" Petty Cash  ")]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "select2",
+                                        {
+                                          ref: "brand_id",
+                                          attrs: {
+                                            allowClear: false,
+                                            placeholder: "",
+                                            value:
+                                              _vm.forms.others.fields
+                                                .petty_cash_account_id
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.forms.others.fields
+                                                .petty_cash_account_id,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.forms.others.fields,
+                                                "petty_cash_account_id",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "forms.others.fields.petty_cash_account_id"
+                                          }
+                                        },
+                                        _vm._l(
+                                          _vm.options.accounttitles.items,
+                                          function(accounttitle) {
+                                            return _c(
+                                              "option",
+                                              {
+                                                key: accounttitle.account_id,
+                                                domProps: {
+                                                  value: accounttitle.account_id
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    accounttitle.account_title
+                                                  )
+                                                )
+                                              ]
+                                            )
+                                          }
+                                        ),
+                                        0
+                                      ),
+                                      _vm._v(" "),
+                                      _c("small", [
+                                        _c("i", [
+                                          _vm._v(
+                                            "Please select the account where petty cash will be forwarded."
+                                          )
+                                        ])
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "6" } },
+                                [
+                                  _c(
+                                    "b-form-group",
+                                    [
+                                      _c("label", [
+                                        _vm._v(" Depreciation Expense (Debit) ")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "select2",
+                                        {
+                                          ref: "brand_id",
+                                          attrs: {
+                                            allowClear: false,
+                                            placeholder: "",
+                                            value:
+                                              _vm.forms.others.fields
+                                                .depreciation_expense_debit_id
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.forms.others.fields
+                                                .depreciation_expense_debit_id,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.forms.others.fields,
+                                                "depreciation_expense_debit_id",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "forms.others.fields.depreciation_expense_debit_id"
+                                          }
+                                        },
+                                        _vm._l(
+                                          _vm.options.accounttitles.items,
+                                          function(accounttitle) {
+                                            return _c(
+                                              "option",
+                                              {
+                                                key: accounttitle.account_id,
+                                                domProps: {
+                                                  value: accounttitle.account_id
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    accounttitle.account_title
+                                                  )
+                                                )
+                                              ]
+                                            )
+                                          }
+                                        ),
+                                        0
+                                      ),
+                                      _vm._v(" "),
+                                      _c("small", [
+                                        _c("i", [
+                                          _vm._v(
+                                            "Account that represents the Debit Entry of the Depreciation Expense."
+                                          )
+                                        ])
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-row",
+                            [
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "6", hidden: "" } },
+                                [
+                                  _c(
+                                    "b-form-group",
+                                    [
+                                      _c("label", [_vm._v("  Fixed Asset  ")]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "select2",
+                                        {
+                                          attrs: {
+                                            allowClear: false,
+                                            placeholder: "",
+                                            value:
+                                              _vm.forms.others.fields
+                                                .fixed_asset_account_id
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.forms.others.fields
+                                                .fixed_asset_account_id,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.forms.others.fields,
+                                                "fixed_asset_account_id",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "forms.others.fields.fixed_asset_account_id"
+                                          }
+                                        },
+                                        _vm._l(
+                                          _vm.options.accounttitles.items,
+                                          function(accounttitle) {
+                                            return _c(
+                                              "option",
+                                              {
+                                                key: accounttitle.account_id,
+                                                domProps: {
+                                                  value: accounttitle.account_id
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    accounttitle.account_title
+                                                  )
+                                                )
+                                              ]
+                                            )
+                                          }
+                                        ),
+                                        0
+                                      ),
+                                      _vm._v(" "),
+                                      _c("small", [
+                                        _c("i", [
+                                          _vm._v(
+                                            "Please select the account where the fixed asset will be forwarded.."
+                                          )
+                                        ])
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "6", offset: "6" } },
+                                [
+                                  _c(
+                                    "b-form-group",
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          " Depreciation Expense (Credit) "
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "select2",
+                                        {
+                                          ref: "brand_id",
+                                          attrs: {
+                                            allowClear: false,
+                                            placeholder: "",
+                                            value:
+                                              _vm.forms.others.fields
+                                                .depreciation_expense_credit_id
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.forms.others.fields
+                                                .depreciation_expense_credit_id,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.forms.others.fields,
+                                                "depreciation_expense_credit_id",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "forms.others.fields.depreciation_expense_credit_id"
+                                          }
+                                        },
+                                        _vm._l(
+                                          _vm.options.accounttitles.items,
+                                          function(accounttitle) {
+                                            return _c(
+                                              "option",
+                                              {
+                                                key: accounttitle.account_id,
+                                                domProps: {
+                                                  value: accounttitle.account_id
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    accounttitle.account_title
+                                                  )
+                                                )
+                                              ]
+                                            )
+                                          }
+                                        ),
+                                        0
+                                      ),
+                                      _vm._v(" "),
+                                      _c("small", [
+                                        _c("i", [
+                                          _vm._v(
+                                            "Account that represents the Credit Entry of the Depreciation Expense."
+                                          )
+                                        ])
+                                      ])
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-row",
+                            { staticClass: "pull-right mt-2" },
+                            [
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "12" } },
+                                [
+                                  _c(
+                                    "b-button",
+                                    {
+                                      attrs: {
+                                        disabled: _vm.forms.others.isSaving,
+                                        variant: "success"
+                                      },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.onSave("others")
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm.forms.others.isSaving
+                                        ? _c("b-spinner", {
+                                            attrs: {
+                                              small: "",
+                                              variant: "light",
+                                              label: "Spinning"
+                                            }
+                                          })
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _c("i", { staticClass: "fa fa-check" }),
+                                      _vm._v(
+                                        "\r\n                                    Save Customer Configurations\r\n                                "
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-tab",
+                    { attrs: { title: "Accounting Period" } },
+                    [
+                      _c(
+                        "b-row",
+                        [
+                          _c("b-col", { attrs: { sm: "4" } }, [
+                            _vm._v(
+                              "\r\n                            Close Accounting Period | Feature not ready\r\n                        "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "b-col",
+                            { attrs: { offset: "4", sm: "4" } },
+                            [
+                              _c("b-form-input", {
+                                attrs: {
+                                  type: "text",
+                                  placeholder: "Search",
+                                  debounce: "250"
+                                },
+                                model: {
+                                  value: _vm.filters.accountingperiod.criteria,
+                                  callback: function($$v) {
+                                    _vm.$set(
+                                      _vm.filters.accountingperiod,
+                                      "criteria",
+                                      $$v
+                                    )
+                                  },
+                                  expression:
+                                    "filters.accountingperiod.criteria"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "b-row",
+                        [
+                          _c("b-table", {
+                            attrs: {
+                              striped: "",
+                              bordered: "",
+                              borderless: "",
+                              "show-empty": "",
+                              fields: _vm.tables.accountingperiod.fields,
+                              items: _vm.tables.accountingperiod.items,
+                              filter: _vm.filters.accountingperiod.criteria,
+                              "current-page":
+                                _vm.paginations.accountingperiod.currentPage,
+                              "per-page":
+                                _vm.paginations.accountingperiod.perPage
+                            },
+                            on: {
+                              "update:items": function($event) {
+                                return _vm.$set(
+                                  _vm.tables.accountingperiod,
+                                  "items",
+                                  $event
+                                )
+                              },
+                              filtered: function($event) {
+                                return _vm.onFiltered(
+                                  $event,
+                                  "accountingperiod"
+                                )
+                              }
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "b-row",
+                        { attrs: { mb: "0" } },
+                        [
+                          _c(
+                            "b-col",
+                            { staticClass: "my-1 mb-0", attrs: { sm: "12" } },
+                            [
+                              _c("b-pagination", {
+                                attrs: {
+                                  mb: "0",
+                                  "total-rows":
+                                    _vm.paginations.accountingperiod.totalRows,
+                                  "per-page":
+                                    _vm.paginations.accountingperiod.perPage,
+                                  "prev-text": "Previous",
+                                  "next-text": "Next",
+                                  "hide-goto-end-buttons": "",
+                                  size: "sm",
+                                  align: "right"
+                                },
+                                model: {
+                                  value:
+                                    _vm.paginations.accountingperiod
+                                      .currentPage,
+                                  callback: function($$v) {
+                                    _vm.$set(
+                                      _vm.paginations.accountingperiod,
+                                      "currentPage",
+                                      $$v
+                                    )
+                                  },
+                                  expression:
+                                    "paginations.accountingperiod.currentPage"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
                   )
                 ],
                 1
@@ -80646,50 +81896,7 @@ var render = function() {
             ],
             1
           )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { attrs: { slot: "modal-footer" }, slot: "modal-footer" },
-        [
-          _c(
-            "b-button",
-            {
-              attrs: {
-                disabled: _vm.forms.salesperson.isSaving,
-                variant: "success"
-              },
-              on: { click: _vm.onSalespersonEntry }
-            },
-            [
-              _vm.forms.salesperson.isSaving
-                ? _c("b-spinner", {
-                    attrs: { small: "", variant: "light", label: "Spinning" }
-                  })
-                : _vm._e(),
-              _vm._v(" "),
-              _c("i", { staticClass: "fa fa-check" }),
-              _vm._v("\n            Save\n        ")
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "b-button",
-            {
-              attrs: { variant: "danger" },
-              on: {
-                click: function($event) {
-                  _vm.showModalEntry = false
-                }
-              }
-            },
-            [_vm._v("Close")]
-          )
-        ],
-        1
+        ]
       )
     ],
     1
@@ -80717,7 +81924,20 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("b-form-select", [_vm._t("default")], 2)
+  return _c(
+    "b-form-select",
+    {
+      model: {
+        value: _vm.value,
+        callback: function($$v) {
+          _vm.value = $$v
+        },
+        expression: "value"
+      }
+    },
+    [_vm._t("default")],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -97048,9 +98268,10 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('select2', __webpack_requir
 // Vue.component('products', require('./components/Masterfiles/Products.vue').default);
 // Vue.component('suppliers', require('./components/Masterfiles/Suppliers.vue').default);
 // Vue.component('customers', require('./components/Masterfiles/Customers.vue').default);
+// Vue.component('salespersons', require('./components/Masterfiles/Salespersons.vue').default);
+// Vue.component('accounttitles', require('./components/References/AccountTitles.vue').default);
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('salespersons', __webpack_require__(/*! ./components/Masterfiles/Salespersons.vue */ "./resources/js/components/Masterfiles/Salespersons.vue")["default"]); // Vue.component('accounttitles', require('./components/References/AccountTitles.vue').default);
-// APP
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('generalconfiguration', __webpack_require__(/*! ./components/Settings/GeneralConfiguration.vue */ "./resources/js/components/Settings/GeneralConfiguration.vue")["default"]); // APP
 
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app'
@@ -97100,75 +98321,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
-
-/***/ }),
-
-/***/ "./resources/js/components/Masterfiles/Salespersons.vue":
-/*!**************************************************************!*\
-  !*** ./resources/js/components/Masterfiles/Salespersons.vue ***!
-  \**************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Salespersons_vue_vue_type_template_id_3a83a537___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Salespersons.vue?vue&type=template&id=3a83a537& */ "./resources/js/components/Masterfiles/Salespersons.vue?vue&type=template&id=3a83a537&");
-/* harmony import */ var _Salespersons_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Salespersons.vue?vue&type=script&lang=js& */ "./resources/js/components/Masterfiles/Salespersons.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Salespersons_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Salespersons_vue_vue_type_template_id_3a83a537___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Salespersons_vue_vue_type_template_id_3a83a537___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/Masterfiles/Salespersons.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/Masterfiles/Salespersons.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************!*\
-  !*** ./resources/js/components/Masterfiles/Salespersons.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Salespersons_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Salespersons.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Masterfiles/Salespersons.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Salespersons_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/Masterfiles/Salespersons.vue?vue&type=template&id=3a83a537&":
-/*!*********************************************************************************************!*\
-  !*** ./resources/js/components/Masterfiles/Salespersons.vue?vue&type=template&id=3a83a537& ***!
-  \*********************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Salespersons_vue_vue_type_template_id_3a83a537___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Salespersons.vue?vue&type=template&id=3a83a537& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Masterfiles/Salespersons.vue?vue&type=template&id=3a83a537&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Salespersons_vue_vue_type_template_id_3a83a537___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Salespersons_vue_vue_type_template_id_3a83a537___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
 
 /***/ }),
 
@@ -97225,17 +98377,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/modals/DeleteEntry.vue":
-/*!********************************************************!*\
-  !*** ./resources/js/components/modals/DeleteEntry.vue ***!
-  \********************************************************/
+/***/ "./resources/js/components/Settings/GeneralConfiguration.vue":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/Settings/GeneralConfiguration.vue ***!
+  \*******************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _DeleteEntry_vue_vue_type_template_id_1fc26a6e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DeleteEntry.vue?vue&type=template&id=1fc26a6e& */ "./resources/js/components/modals/DeleteEntry.vue?vue&type=template&id=1fc26a6e&");
-/* harmony import */ var _DeleteEntry_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DeleteEntry.vue?vue&type=script&lang=js& */ "./resources/js/components/modals/DeleteEntry.vue?vue&type=script&lang=js&");
+/* harmony import */ var _GeneralConfiguration_vue_vue_type_template_id_6c80f81f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GeneralConfiguration.vue?vue&type=template&id=6c80f81f& */ "./resources/js/components/Settings/GeneralConfiguration.vue?vue&type=template&id=6c80f81f&");
+/* harmony import */ var _GeneralConfiguration_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GeneralConfiguration.vue?vue&type=script&lang=js& */ "./resources/js/components/Settings/GeneralConfiguration.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -97245,9 +98397,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _DeleteEntry_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _DeleteEntry_vue_vue_type_template_id_1fc26a6e___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _DeleteEntry_vue_vue_type_template_id_1fc26a6e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _GeneralConfiguration_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _GeneralConfiguration_vue_vue_type_template_id_6c80f81f___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _GeneralConfiguration_vue_vue_type_template_id_6c80f81f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -97257,107 +98409,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/modals/DeleteEntry.vue"
+component.options.__file = "resources/js/components/Settings/GeneralConfiguration.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/modals/DeleteEntry.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************!*\
-  !*** ./resources/js/components/modals/DeleteEntry.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DeleteEntry_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./DeleteEntry.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/modals/DeleteEntry.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DeleteEntry_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/modals/DeleteEntry.vue?vue&type=template&id=1fc26a6e&":
-/*!***************************************************************************************!*\
-  !*** ./resources/js/components/modals/DeleteEntry.vue?vue&type=template&id=1fc26a6e& ***!
-  \***************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeleteEntry_vue_vue_type_template_id_1fc26a6e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./DeleteEntry.vue?vue&type=template&id=1fc26a6e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/modals/DeleteEntry.vue?vue&type=template&id=1fc26a6e&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeleteEntry_vue_vue_type_template_id_1fc26a6e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeleteEntry_vue_vue_type_template_id_1fc26a6e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/modals/SalespersonEntry.vue":
-/*!*************************************************************!*\
-  !*** ./resources/js/components/modals/SalespersonEntry.vue ***!
-  \*************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _SalespersonEntry_vue_vue_type_template_id_7e9e1fbf___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SalespersonEntry.vue?vue&type=template&id=7e9e1fbf& */ "./resources/js/components/modals/SalespersonEntry.vue?vue&type=template&id=7e9e1fbf&");
-/* harmony import */ var _SalespersonEntry_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SalespersonEntry.vue?vue&type=script&lang=js& */ "./resources/js/components/modals/SalespersonEntry.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _SalespersonEntry_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _SalespersonEntry_vue_vue_type_template_id_7e9e1fbf___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _SalespersonEntry_vue_vue_type_template_id_7e9e1fbf___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/modals/SalespersonEntry.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/modals/SalespersonEntry.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************!*\
-  !*** ./resources/js/components/modals/SalespersonEntry.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SalespersonEntry_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./SalespersonEntry.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/modals/SalespersonEntry.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SalespersonEntry_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/modals/SalespersonEntry.vue?vue&type=template&id=7e9e1fbf&":
+/***/ "./resources/js/components/Settings/GeneralConfiguration.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************!*\
-  !*** ./resources/js/components/modals/SalespersonEntry.vue?vue&type=template&id=7e9e1fbf& ***!
+  !*** ./resources/js/components/Settings/GeneralConfiguration.vue?vue&type=script&lang=js& ***!
   \********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GeneralConfiguration_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./GeneralConfiguration.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Settings/GeneralConfiguration.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GeneralConfiguration_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Settings/GeneralConfiguration.vue?vue&type=template&id=6c80f81f&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/Settings/GeneralConfiguration.vue?vue&type=template&id=6c80f81f& ***!
+  \**************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SalespersonEntry_vue_vue_type_template_id_7e9e1fbf___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./SalespersonEntry.vue?vue&type=template&id=7e9e1fbf& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/modals/SalespersonEntry.vue?vue&type=template&id=7e9e1fbf&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SalespersonEntry_vue_vue_type_template_id_7e9e1fbf___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GeneralConfiguration_vue_vue_type_template_id_6c80f81f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./GeneralConfiguration.vue?vue&type=template&id=6c80f81f& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Settings/GeneralConfiguration.vue?vue&type=template&id=6c80f81f&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GeneralConfiguration_vue_vue_type_template_id_6c80f81f___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SalespersonEntry_vue_vue_type_template_id_7e9e1fbf___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GeneralConfiguration_vue_vue_type_template_id_6c80f81f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

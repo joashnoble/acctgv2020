@@ -46,8 +46,9 @@ Vue.component('select2', require('./select2/Select2.vue').default);
 // Vue.component('products', require('./components/Masterfiles/Products.vue').default);
 // Vue.component('suppliers', require('./components/Masterfiles/Suppliers.vue').default);
 // Vue.component('customers', require('./components/Masterfiles/Customers.vue').default);
-Vue.component('salespersons', require('./components/Masterfiles/Salespersons.vue').default);
+// Vue.component('salespersons', require('./components/Masterfiles/Salespersons.vue').default);
 // Vue.component('accounttitles', require('./components/References/AccountTitles.vue').default);
+Vue.component('generalconfiguration', require('./components/Settings/GeneralConfiguration.vue').default);
 
 
 // APP
