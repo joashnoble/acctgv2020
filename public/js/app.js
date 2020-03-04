@@ -1941,10 +1941,346 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 
 
+var _methods;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2358,6 +2694,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   components: {},
   data: function data() {
     return {
+      image: new FormData(),
       tables: {
         accountingperiod: {
           fields: [{
@@ -2394,6 +2731,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       // END OF PAGINATION
       options: {
         accounttitles: {
+          items: []
+        },
+        soaacccounttitles: {
+          items: []
+        },
+        faacccounttitles: {
+          items: []
+        },
+        taxtypes: {
           items: []
         }
       },
@@ -2434,6 +2780,38 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             cash_invoice_inventory: null,
             dispatching_invoice_inventory: null
           }
+        },
+        statementofaccounts: {
+          isSaving: false
+        },
+        fixedassets: {
+          isSaving: false
+        },
+        companyprofile: {
+          isSaving: false,
+          fields: {
+            company_name: null,
+            company_address: null,
+            email_address: null,
+            mobile_no: null,
+            landline: null,
+            business_type: null,
+            logo_path: '',
+            tax_type_id: null
+          }
+        },
+        birform: {
+          isSaving: false,
+          fields: {
+            registered_to: null,
+            registered_address: null,
+            zip_code: null,
+            telephone_no: null,
+            tin_no: null,
+            rdo_no: null,
+            nature_of_business: null,
+            industry_classification: null
+          }
         }
       }
     }; // END OF DATA RETURN
@@ -2442,9 +2820,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   created: function created() {
     this.refreshSettings();
     this.fillTableList('accountingperiod');
+    this.fillOptionsList('taxtypes');
   },
   // END OF CREATED
-  methods: {
+  methods: (_methods = {
     refreshSettings: function () {
       var _refreshSettings = _asyncToGenerator(
       /*#__PURE__*/
@@ -2456,19 +2835,35 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return this.$http.get('/api/generalconfiguration', {
+                return this.$http.get('/api/companyinfo', {
                   headers: {
                     Authorization: 'Bearer ' + localStorage.getItem('token')
                   }
                 }).then(function (response) {
                   var records = response.data;
-                  _this.options.accounttitles.items = records.data.accounttitles;
+                  _this.forms.companyprofile.fields = records.data.companyinfo;
+                  _this.forms.birform.fields = records.data.companyinfo;
                 })["catch"](function (error) {
                   if (!error.response) return console.log(error);
                 });
 
               case 2:
                 _context.next = 4;
+                return this.$http.get('/api/generalconfigurationoptions', {
+                  headers: {
+                    Authorization: 'Bearer ' + localStorage.getItem('token')
+                  }
+                }).then(function (response) {
+                  var records = response.data;
+                  _this.options.accounttitles.items = records.data.accounttitles;
+                  _this.options.soaacccounttitles.items = records.data.soaacccounttitles;
+                  _this.options.faacccounttitles.items = records.data.faacccounttitles;
+                })["catch"](function (error) {
+                  if (!error.response) return console.log(error);
+                });
+
+              case 4:
+                _context.next = 6;
                 return this.$http.get('/api/generalconfiguration', {
                   headers: {
                     Authorization: 'Bearer ' + localStorage.getItem('token')
@@ -2483,7 +2878,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   if (!error.response) return console.log(error);
                 });
 
-              case 4:
+              case 6:
               case "end":
                 return _context.stop();
             }
@@ -2535,8 +2930,318 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           a++;
         }
       });
+    },
+    onSaveSOA: function () {
+      var _onSaveSOA = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var _this3 = this;
+
+        var tblft, objSelected;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                this.forms.statementofaccounts.isSaving = true;
+                tblft = this.options.soaacccounttitles.items.filter(function (ft) {
+                  return ft.checked == "1";
+                }); // FILTER, ONLY CHECKED WILL BE PUSHED
+
+                objSelected = {
+                  selectedItems: tblft
+                }; // THEN PUSH AS ARRAY
+
+                _context2.next = 5;
+                return this.$http.put('api/genconfsoa', objSelected, {
+                  headers: {
+                    Authorization: 'Bearer ' + localStorage.getItem('token')
+                  }
+                }).then(function (response) {
+                  _this3.forms.statementofaccounts.isSaving = false;
+
+                  _this3.$notify({
+                    type: 'success',
+                    group: 'notification',
+                    title: 'Success!',
+                    text: 'The Statement of Accounts settings have been successfully modified.'
+                  });
+                })["catch"](function (error) {
+                  _this3.forms.statementofaccounts.isSaving = false;
+                  if (!error.response) return;
+                  var errors = error.response.data.errors;
+                  var a = 0;
+
+                  for (var key in errors) {
+                    if (a == 0) {
+                      _this3.focusElement(key, is_tab);
+
+                      _this3.$notify({
+                        type: 'error',
+                        group: 'notification',
+                        title: 'Error!',
+                        text: errors[key][0]
+                      });
+                    }
+
+                    a++;
+                  }
+                });
+
+              case 5:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function onSaveSOA() {
+        return _onSaveSOA.apply(this, arguments);
+      }
+
+      return onSaveSOA;
+    }(),
+    onSaveFA: function () {
+      var _onSaveFA = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var _this4 = this;
+
+        var tblft, objSelected;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                this.forms.fixedassets.isSaving = true;
+                tblft = this.options.faacccounttitles.items.filter(function (ft) {
+                  return ft.checked == "1";
+                }); // FILTER, ONLY CHECKED WILL BE PUSHED
+
+                objSelected = {
+                  selectedItems: tblft
+                }; // THEN PUSH AS ARRAY
+
+                _context3.next = 5;
+                return this.$http.put('api/genconffa', objSelected, {
+                  headers: {
+                    Authorization: 'Bearer ' + localStorage.getItem('token')
+                  }
+                }).then(function (response) {
+                  _this4.forms.fixedassets.isSaving = false;
+
+                  _this4.$notify({
+                    type: 'success',
+                    group: 'notification',
+                    title: 'Success!',
+                    text: 'The Fixed Asset Accounts settings have been successfully modified.'
+                  });
+                })["catch"](function (error) {
+                  _this4.forms.fixedassets.isSaving = false;
+                  if (!error.response) return;
+                  var errors = error.response.data.errors;
+                  var a = 0;
+
+                  for (var key in errors) {
+                    if (a == 0) {
+                      _this4.focusElement(key, is_tab);
+
+                      _this4.$notify({
+                        type: 'error',
+                        group: 'notification',
+                        title: 'Error!',
+                        text: errors[key][0]
+                      });
+                    }
+
+                    a++;
+                  }
+                });
+
+              case 5:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this);
+      }));
+
+      function onSaveFA() {
+        return _onSaveFA.apply(this, arguments);
+      }
+
+      return onSaveFA;
+    }(),
+    onImageChange: function () {
+      var _onImageChange = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(e) {
+        var _this5 = this;
+
+        var files;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                files = e.target.files || e.dataTransfer.files;
+
+                if (files.length) {
+                  _context4.next = 3;
+                  break;
+                }
+
+                return _context4.abrupt("return");
+
+              case 3:
+                this.image.append('file', e.target.files[0]);
+                this.image.append('path', 'uploads/logo'); // Directory Path
+
+                this.image.append('name', e.target.files[0].name);
+                _context4.next = 8;
+                return this.$http.post('/api/uploadlogo', this.image, {
+                  headers: {
+                    Authorization: 'Bearer ' + localStorage.getItem('token'),
+                    'Content-Type': 'multipart/form-data'
+                  }
+                }).then(function (response) {
+                  _this5.forms.companyprofile.fields.logo_path = response.data.path;
+                })["catch"](function (error) {
+                  if (!error.response) return;
+                  console.log(error);
+                });
+
+              case 8:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this);
+      }));
+
+      function onImageChange(_x) {
+        return _onImageChange.apply(this, arguments);
+      }
+
+      return onImageChange;
+    }()
+  }, _defineProperty(_methods, "onSaveFA", function () {
+    var _onSaveFA2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+      var _this6 = this;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              this.forms.companyprofile.isSaving = true;
+              this.$http.put('api/genconfcompany', this.forms.companyprofile.fields, {
+                headers: {
+                  Authorization: 'Bearer ' + localStorage.getItem('token')
+                }
+              }).then(function (response) {
+                _this6.forms.companyprofile.isSaving = false;
+
+                _this6.$notify({
+                  type: 'success',
+                  group: 'notification',
+                  title: 'Success!',
+                  text: 'The Company Profile settings have been successfully modified.'
+                });
+              })["catch"](function (error) {
+                _this6.forms.fixedassets.isSaving = false;
+                if (!error.response) return;
+                var errors = error.response.data.errors;
+                var a = 0;
+
+                for (var key in errors) {
+                  if (a == 0) {
+                    _this6.focusElement(key, is_tab);
+
+                    _this6.$notify({
+                      type: 'error',
+                      group: 'notification',
+                      title: 'Error!',
+                      text: errors[key][0]
+                    });
+                  }
+
+                  a++;
+                }
+              });
+
+            case 2:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, this);
+    }));
+
+    function onSaveFA() {
+      return _onSaveFA2.apply(this, arguments);
     }
-  } // END OF METHODS
+
+    return onSaveFA;
+  }()), _defineProperty(_methods, "onSaveBir", function () {
+    var _onSaveBir = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6() {
+      var _this7 = this;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              this.forms.birform.isSaving = true;
+              this.$http.put('api/genconfbir', this.forms.birform.fields, {
+                headers: {
+                  Authorization: 'Bearer ' + localStorage.getItem('token')
+                }
+              }).then(function (response) {
+                _this7.forms.birform.isSaving = false;
+
+                _this7.$notify({
+                  type: 'success',
+                  group: 'notification',
+                  title: 'Success!',
+                  text: 'The Bir Form settings have been successfully modified.'
+                });
+              })["catch"](function (error) {
+                _this7.forms.fixedassets.isSaving = false;
+                if (!error.response) return;
+                var errors = error.response.data.errors;
+                var a = 0;
+
+                for (var key in errors) {
+                  if (a == 0) {
+                    _this7.focusElement(key, is_tab);
+
+                    _this7.$notify({
+                      type: 'error',
+                      group: 'notification',
+                      title: 'Error!',
+                      text: errors[key][0]
+                    });
+                  }
+
+                  a++;
+                }
+              });
+
+            case 2:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6, this);
+    }));
+
+    function onSaveBir() {
+      return _onSaveBir.apply(this, arguments);
+    }
+
+    return onSaveBir;
+  }()), _methods) // END OF METHODS
 
 }); // END OF EXPORT
 
@@ -80248,7 +80953,1113 @@ var render = function() {
                 [
                   _c(
                     "b-tab",
-                    { attrs: { title: "Supplier", active: "" } },
+                    { attrs: { title: "Company", Active: "" } },
+                    [
+                      _c(
+                        "b-form",
+                        { attrs: { autocomplete: "off" } },
+                        [
+                          _c(
+                            "b-row",
+                            { staticClass: "mb-2" },
+                            [
+                              _c("b-col", { attrs: { sm: "12" } }, [
+                                _c("span", [_vm._v("Company Profile")]),
+                                _c("br"),
+                                _vm._v(" "),
+                                _c("small", [
+                                  _c("i", [
+                                    _vm._v(
+                                      "Note: Information entered will be used as heading for all PDF and Excel reports."
+                                    )
+                                  ])
+                                ])
+                              ])
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-row",
+                            [
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "8" } },
+                                [
+                                  _c(
+                                    "b-row",
+                                    [
+                                      _c(
+                                        "b-col",
+                                        { attrs: { sm: "6" } },
+                                        [
+                                          _c(
+                                            "b-form-group",
+                                            [
+                                              _c(
+                                                "label",
+                                                {
+                                                  staticClass: "required",
+                                                  attrs: { for: "company_name" }
+                                                },
+                                                [_vm._v("Company Name")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("b-form-input", {
+                                                attrs: {
+                                                  id: "company_name",
+                                                  debounce: "250",
+                                                  type: "text",
+                                                  placeholder: "Company Name"
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.forms.companyprofile
+                                                      .fields.company_name,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.forms.companyprofile
+                                                        .fields,
+                                                      "company_name",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "forms.companyprofile.fields.company_name"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-col",
+                                        { attrs: { sm: "6" } },
+                                        [
+                                          _c(
+                                            "b-form-group",
+                                            [
+                                              _c(
+                                                "label",
+                                                {
+                                                  staticClass: "required",
+                                                  attrs: {
+                                                    for: "email_address"
+                                                  }
+                                                },
+                                                [_vm._v("Email Address")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("b-form-input", {
+                                                attrs: {
+                                                  id: "email_address",
+                                                  debounce: "250",
+                                                  type: "text",
+                                                  placeholder: "Email Address"
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.forms.companyprofile
+                                                      .fields.email_address,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.forms.companyprofile
+                                                        .fields,
+                                                      "email_address",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "forms.companyprofile.fields.email_address"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "b-row",
+                                    [
+                                      _c(
+                                        "b-col",
+                                        { attrs: { sm: "12" } },
+                                        [
+                                          _c(
+                                            "b-form-group",
+                                            [
+                                              _c(
+                                                "label",
+                                                {
+                                                  staticClass: "required",
+                                                  attrs: {
+                                                    for: "company_address"
+                                                  }
+                                                },
+                                                [_vm._v("Company Address")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("b-form-input", {
+                                                attrs: {
+                                                  id: "company_address",
+                                                  debounce: "250",
+                                                  type: "text",
+                                                  placeholder: "Company Address"
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.forms.companyprofile
+                                                      .fields.company_address,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.forms.companyprofile
+                                                        .fields,
+                                                      "company_address",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "forms.companyprofile.fields.company_address"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "b-row",
+                                    [
+                                      _c(
+                                        "b-col",
+                                        { attrs: { sm: "6" } },
+                                        [
+                                          _c(
+                                            "b-form-group",
+                                            [
+                                              _c(
+                                                "label",
+                                                {
+                                                  staticClass: "required",
+                                                  attrs: { for: "mobile_no" }
+                                                },
+                                                [_vm._v("Mobile Number")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("b-form-input", {
+                                                attrs: {
+                                                  id: "mobile_no",
+                                                  debounce: "250",
+                                                  type: "text",
+                                                  placeholder: "Mobile Number"
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.forms.companyprofile
+                                                      .fields.mobile_no,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.forms.companyprofile
+                                                        .fields,
+                                                      "mobile_no",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "forms.companyprofile.fields.mobile_no"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-col",
+                                        { attrs: { sm: "6" } },
+                                        [
+                                          _c(
+                                            "b-form-group",
+                                            [
+                                              _c(
+                                                "label",
+                                                {
+                                                  staticClass: "required",
+                                                  attrs: { for: "landline" }
+                                                },
+                                                [_vm._v("Landline Number")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("b-form-input", {
+                                                attrs: {
+                                                  id: "landline",
+                                                  debounce: "250",
+                                                  type: "text",
+                                                  placeholder: "Landline"
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.forms.companyprofile
+                                                      .fields.landline,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.forms.companyprofile
+                                                        .fields,
+                                                      "landline",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "forms.companyprofile.fields.landline"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "b-row",
+                                    [
+                                      _c(
+                                        "b-col",
+                                        { attrs: { sm: "6" } },
+                                        [
+                                          _c(
+                                            "b-form-group",
+                                            [
+                                              _c("label", [
+                                                _vm._v(" Business Structure")
+                                              ]),
+                                              _vm._v(" "),
+                                              _c(
+                                                "select2",
+                                                {
+                                                  ref: "brand_id",
+                                                  attrs: {
+                                                    allowClear: false,
+                                                    placeholder: "",
+                                                    value:
+                                                      _vm.forms.companyprofile
+                                                        .fields.business_type
+                                                  },
+                                                  model: {
+                                                    value:
+                                                      _vm.forms.companyprofile
+                                                        .fields.business_type,
+                                                    callback: function($$v) {
+                                                      _vm.$set(
+                                                        _vm.forms.companyprofile
+                                                          .fields,
+                                                        "business_type",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "forms.companyprofile.fields.business_type"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "option",
+                                                    { attrs: { value: "1" } },
+                                                    [
+                                                      _vm._v(
+                                                        "Sole Proprietorship"
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "option",
+                                                    { attrs: { value: "2" } },
+                                                    [_vm._v("Partnership")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "option",
+                                                    { attrs: { value: "3" } },
+                                                    [_vm._v("Corporation")]
+                                                  )
+                                                ]
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-col",
+                                        { attrs: { sm: "6" } },
+                                        [
+                                          _c(
+                                            "b-form-group",
+                                            [
+                                              _c(
+                                                "label",
+                                                { staticClass: "required" },
+                                                [_vm._v(" Tax Type ")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "select2",
+                                                {
+                                                  ref: "tax_type_id",
+                                                  attrs: {
+                                                    allowClear: false,
+                                                    placeholder:
+                                                      "Select Tax Type"
+                                                  },
+                                                  model: {
+                                                    value:
+                                                      _vm.forms.companyprofile
+                                                        .fields.tax_type_id,
+                                                    callback: function($$v) {
+                                                      _vm.$set(
+                                                        _vm.forms.companyprofile
+                                                          .fields,
+                                                        "tax_type_id",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "forms.companyprofile.fields.tax_type_id"
+                                                  }
+                                                },
+                                                _vm._l(
+                                                  _vm.options.taxtypes.items,
+                                                  function(taxtype) {
+                                                    return _c(
+                                                      "option",
+                                                      {
+                                                        key:
+                                                          taxtype.tax_type_id,
+                                                        domProps: {
+                                                          value:
+                                                            taxtype.tax_type_id
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          _vm._s(
+                                                            taxtype.tax_type
+                                                          )
+                                                        )
+                                                      ]
+                                                    )
+                                                  }
+                                                ),
+                                                0
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "4" } },
+                                [
+                                  _c(
+                                    "b-row",
+                                    [
+                                      _c("b-col", { attrs: { lg: "12" } }, [
+                                        _c(
+                                          "label",
+                                          { staticClass: "col-form-label" },
+                                          [_vm._v("Logo :")]
+                                        )
+                                      ])
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "b-row",
+                                    [
+                                      _c("b-col", { attrs: { lg: "12" } }, [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "border",
+                                            staticStyle: {
+                                              border: "1px solid black",
+                                              height: "200px",
+                                              width: "200px",
+                                              "vertical-align": "middle"
+                                            }
+                                          },
+                                          [
+                                            _c("b-img", {
+                                              staticStyle: {
+                                                "object-fit": "fill !important",
+                                                height: "100%",
+                                                width: "100%"
+                                              },
+                                              attrs: {
+                                                src:
+                                                  _vm.forms.companyprofile
+                                                    .fields.logo_path
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                      ])
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "b-row",
+                                    { staticClass: "mt-2" },
+                                    [
+                                      _c(
+                                        "b-col",
+                                        { attrs: { lg: "12" } },
+                                        [
+                                          _c("b-form-file", {
+                                            ref: "file",
+                                            staticStyle: { display: "none" },
+                                            attrs: {
+                                              accept: ".jpg, .png, .gif",
+                                              plain: ""
+                                            },
+                                            on: { change: _vm.onImageChange }
+                                          }),
+                                          _vm._v(" "),
+                                          _c(
+                                            "b-btn",
+                                            {
+                                              attrs: { variant: "success" },
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.$refs.file.$el.click()
+                                                }
+                                              }
+                                            },
+                                            [
+                                              _c("i", {
+                                                staticClass:
+                                                  "fa fa-file-image-o"
+                                              }),
+                                              _vm._v(
+                                                " Browse\r\n                                        "
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "b-btn",
+                                            {
+                                              attrs: { variant: "danger" },
+                                              on: {
+                                                click: function($event) {
+                                                  _vm.$refs.file.reset(),
+                                                    (_vm.forms.companyprofile.fields.logo_path =
+                                                      "uploads/defaults/default-logo.jpg")
+                                                }
+                                              }
+                                            },
+                                            [
+                                              _c("i", {
+                                                staticClass: "fa fa-times"
+                                              }),
+                                              _vm._v(
+                                                " Remove\r\n                                        "
+                                              )
+                                            ]
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-row",
+                            { staticClass: "pull-right mt-2" },
+                            [
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "12" } },
+                                [
+                                  _c(
+                                    "b-button",
+                                    {
+                                      attrs: {
+                                        disabled:
+                                          _vm.forms.companyprofile.isSaving,
+                                        variant: "success"
+                                      },
+                                      on: { click: _vm.onSaveFA }
+                                    },
+                                    [
+                                      _vm.forms.companyprofile.isSaving
+                                        ? _c("b-spinner", {
+                                            attrs: {
+                                              small: "",
+                                              variant: "light",
+                                              label: "Spinning"
+                                            }
+                                          })
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _c("i", { staticClass: "fa fa-check" }),
+                                      _vm._v(
+                                        "\r\n                                    Save Company Profile\r\n                                "
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-tab",
+                    { attrs: { title: "BIR" } },
+                    [
+                      _c(
+                        "b-form",
+                        { attrs: { autocomplete: "off" } },
+                        [
+                          _c(
+                            "b-row",
+                            { staticClass: "mb-2" },
+                            [
+                              _c("b-col", { attrs: { sm: "12" } }, [
+                                _c("span", [
+                                  _vm._v("Bureau of Internal Revenue Profile")
+                                ]),
+                                _c("br"),
+                                _vm._v(" "),
+                                _c("small", [
+                                  _c("i", [
+                                    _vm._v(
+                                      "Note: Information entered will be used for all generated BIR Forms."
+                                    )
+                                  ])
+                                ])
+                              ])
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-row",
+                            [
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "12" } },
+                                [
+                                  _c(
+                                    "b-row",
+                                    [
+                                      _c(
+                                        "b-col",
+                                        { attrs: { sm: "4" } },
+                                        [
+                                          _c(
+                                            "b-form-group",
+                                            [
+                                              _c(
+                                                "label",
+                                                {
+                                                  staticClass: "required",
+                                                  attrs: {
+                                                    for: "registered_to"
+                                                  }
+                                                },
+                                                [_vm._v("Taxpayer's Name")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("b-form-input", {
+                                                attrs: {
+                                                  id: "registered_to",
+                                                  debounce: "250",
+                                                  type: "text",
+                                                  placeholder: "Taxpayer's Name"
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.forms.birform.fields
+                                                      .registered_to,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.forms.birform.fields,
+                                                      "registered_to",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "forms.birform.fields.registered_to"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-col",
+                                        { attrs: { sm: "8" } },
+                                        [
+                                          _c(
+                                            "b-form-group",
+                                            [
+                                              _c(
+                                                "label",
+                                                {
+                                                  staticClass: "required",
+                                                  attrs: {
+                                                    for: "registered_address"
+                                                  }
+                                                },
+                                                [_vm._v("Registered Address ")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("b-form-input", {
+                                                attrs: {
+                                                  id: "registered_address",
+                                                  debounce: "250",
+                                                  type: "text",
+                                                  placeholder:
+                                                    "Registered Address"
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.forms.birform.fields
+                                                      .registered_address,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.forms.birform.fields,
+                                                      "registered_address",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "forms.birform.fields.registered_address"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "b-row",
+                                    [
+                                      _c(
+                                        "b-col",
+                                        { attrs: { sm: "4" } },
+                                        [
+                                          _c(
+                                            "b-form-group",
+                                            [
+                                              _c(
+                                                "label",
+                                                {
+                                                  staticClass: "required",
+                                                  attrs: { for: "zip_code" }
+                                                },
+                                                [_vm._v("Zip Code")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("b-form-input", {
+                                                attrs: {
+                                                  id: "zip_code",
+                                                  debounce: "250",
+                                                  type: "text",
+                                                  placeholder: "Zip Code"
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.forms.birform.fields
+                                                      .zip_code,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.forms.birform.fields,
+                                                      "zip_code",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "forms.birform.fields.zip_code"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-col",
+                                        { attrs: { sm: "4" } },
+                                        [
+                                          _c(
+                                            "b-form-group",
+                                            [
+                                              _c(
+                                                "label",
+                                                {
+                                                  staticClass: "required",
+                                                  attrs: { for: "telephone_no" }
+                                                },
+                                                [_vm._v("Telephone No")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("b-form-input", {
+                                                attrs: {
+                                                  id: "telephone_no",
+                                                  debounce: "250",
+                                                  type: "text",
+                                                  placeholder: "Telephone No"
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.forms.birform.fields
+                                                      .telephone_no,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.forms.birform.fields,
+                                                      "telephone_no",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "forms.birform.fields.telephone_no"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-col",
+                                        { attrs: { sm: "4" } },
+                                        [
+                                          _c(
+                                            "b-form-group",
+                                            [
+                                              _c(
+                                                "label",
+                                                {
+                                                  staticClass: "required",
+                                                  attrs: { for: "tin_no" }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "Tax Identification Number (TIN)"
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("b-form-input", {
+                                                attrs: {
+                                                  id: "tin_no",
+                                                  debounce: "250",
+                                                  type: "text",
+                                                  placeholder:
+                                                    "Tax Identification Number"
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.forms.birform.fields
+                                                      .tin_no,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.forms.birform.fields,
+                                                      "tin_no",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "forms.birform.fields.tin_no"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "b-row",
+                                    [
+                                      _c(
+                                        "b-col",
+                                        { attrs: { sm: "4" } },
+                                        [
+                                          _c(
+                                            "b-form-group",
+                                            [
+                                              _c(
+                                                "label",
+                                                {
+                                                  staticClass: "required",
+                                                  attrs: { for: "rdo_no" }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "Revenue District Office (RDO) Number"
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("b-form-input", {
+                                                attrs: {
+                                                  id: "rdo_no",
+                                                  debounce: "250",
+                                                  type: "text",
+                                                  placeholder:
+                                                    "Revenue District Office Number"
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.forms.birform.fields
+                                                      .rdo_no,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.forms.birform.fields,
+                                                      "rdo_no",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "forms.birform.fields.rdo_no"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-col",
+                                        { attrs: { sm: "4" } },
+                                        [
+                                          _c(
+                                            "b-form-group",
+                                            [
+                                              _c(
+                                                "label",
+                                                {
+                                                  staticClass: "required",
+                                                  attrs: {
+                                                    for: "nature_of_business"
+                                                  }
+                                                },
+                                                [_vm._v("Nature of Business")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("b-form-input", {
+                                                attrs: {
+                                                  id: "nature_of_business",
+                                                  debounce: "250",
+                                                  type: "text",
+                                                  placeholder:
+                                                    "Nature of Business"
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.forms.birform.fields
+                                                      .nature_of_business,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.forms.birform.fields,
+                                                      "nature_of_business",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "forms.birform.fields.nature_of_business"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-col",
+                                        { attrs: { sm: "4" } },
+                                        [
+                                          _c(
+                                            "b-form-group",
+                                            [
+                                              _c(
+                                                "label",
+                                                {
+                                                  staticClass: "required",
+                                                  attrs: {
+                                                    for:
+                                                      "industry_classification"
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "Industry Classification"
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("b-form-input", {
+                                                attrs: {
+                                                  id: "industry_classification",
+                                                  debounce: "250",
+                                                  type: "text",
+                                                  placeholder:
+                                                    "Industry Classification"
+                                                },
+                                                model: {
+                                                  value:
+                                                    _vm.forms.birform.fields
+                                                      .industry_classification,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.forms.birform.fields,
+                                                      "industry_classification",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression:
+                                                    "forms.birform.fields.industry_classification"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-row",
+                            { staticClass: "pull-right mt-2" },
+                            [
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "12" } },
+                                [
+                                  _c(
+                                    "b-button",
+                                    {
+                                      attrs: {
+                                        disabled: _vm.forms.birform.isSaving,
+                                        variant: "success"
+                                      },
+                                      on: { click: _vm.onSaveBir }
+                                    },
+                                    [
+                                      _vm.forms.birform.isSaving
+                                        ? _c("b-spinner", {
+                                            attrs: {
+                                              small: "",
+                                              variant: "light",
+                                              label: "Spinning"
+                                            }
+                                          })
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _c("i", { staticClass: "fa fa-check" }),
+                                      _vm._v(
+                                        "\r\n                                    Save Bureau of Internal Revenue Profile\r\n                                "
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-tab",
+                    { attrs: { title: "Supplier" } },
                     [
                       _c(
                         "b-form",
@@ -81881,6 +83692,277 @@ var render = function() {
                                     "paginations.accountingperiod.currentPage"
                                 }
                               })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-tab",
+                    { attrs: { title: "Statement of Accounts" } },
+                    [
+                      _c(
+                        "b-form",
+                        { attrs: { autocomplete: "off" } },
+                        [
+                          _c(
+                            "b-row",
+                            { staticClass: "mb-2" },
+                            [
+                              _c("b-col", { attrs: { sm: "12" } }, [
+                                _c("span", [
+                                  _vm._v("RECEIVABLES FROM CUSTOMERS")
+                                ]),
+                                _c("br"),
+                                _vm._v(" "),
+                                _c("small", [
+                                  _c("i", [
+                                    _vm._v(
+                                      "Note: Please check the appropriate accounts to be included in the computation of Total of Receivables, Statement of Accounts, and Aging of Receivables"
+                                    )
+                                  ])
+                                ])
+                              ])
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-row",
+                            _vm._l(
+                              _vm.options.soaacccounttitles.items,
+                              function(soaaccounttitle) {
+                                return _c(
+                                  "b-col",
+                                  {
+                                    key: soaaccounttitle.account_id,
+                                    attrs: { sm: "4" }
+                                  },
+                                  [
+                                    _c(
+                                      "b-form-group",
+                                      [
+                                        _c(
+                                          "b-form-checkbox",
+                                          {
+                                            attrs: {
+                                              size: "sm",
+                                              value: "1",
+                                              "unchecked-value": "0"
+                                            },
+                                            model: {
+                                              value: soaaccounttitle.checked,
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  soaaccounttitle,
+                                                  "checked",
+                                                  $$v
+                                                )
+                                              },
+                                              expression:
+                                                "soaaccounttitle.checked"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\r\n                                        " +
+                                                _vm._s(
+                                                  soaaccounttitle.account_title
+                                                ) +
+                                                "\r\n                                    "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
+                              }
+                            ),
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-row",
+                            { staticClass: "pull-right mt-2" },
+                            [
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "12" } },
+                                [
+                                  _c(
+                                    "b-button",
+                                    {
+                                      attrs: {
+                                        disabled:
+                                          _vm.forms.statementofaccounts
+                                            .isSaving,
+                                        variant: "success"
+                                      },
+                                      on: { click: _vm.onSaveSOA }
+                                    },
+                                    [
+                                      _vm.forms.statementofaccounts.isSaving
+                                        ? _c("b-spinner", {
+                                            attrs: {
+                                              small: "",
+                                              variant: "light",
+                                              label: "Spinning"
+                                            }
+                                          })
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _c("i", { staticClass: "fa fa-check" }),
+                                      _vm._v(
+                                        "\r\n                                    Save Accounts Receivable Configuration\r\n                                "
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-tab",
+                    { attrs: { title: "Fixed Assets" } },
+                    [
+                      _c(
+                        "b-form",
+                        { attrs: { autocomplete: "off" } },
+                        [
+                          _c(
+                            "b-row",
+                            { staticClass: "mb-2" },
+                            [
+                              _c("b-col", { attrs: { sm: "12" } }, [
+                                _c("span", [
+                                  _vm._v("FIXED ASSET AUTO GENERATION SETTINGS")
+                                ]),
+                                _c("br"),
+                                _vm._v(" "),
+                                _c("small", [
+                                  _c("i", [
+                                    _vm._v(
+                                      "Note: Please check the appropriate Fixed Asset Accounts used in Product Management (Link to Debit Account) to be included in the Fixed Asset Generation in Purchase Journal"
+                                    )
+                                  ])
+                                ])
+                              ])
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-row",
+                            _vm._l(_vm.options.faacccounttitles.items, function(
+                              faaccounttitle
+                            ) {
+                              return _c(
+                                "b-col",
+                                {
+                                  key: faaccounttitle.account_id,
+                                  attrs: { sm: "4" }
+                                },
+                                [
+                                  _c(
+                                    "b-form-group",
+                                    [
+                                      _c(
+                                        "b-form-checkbox",
+                                        {
+                                          attrs: {
+                                            size: "sm",
+                                            value: "1",
+                                            "unchecked-value": "0"
+                                          },
+                                          model: {
+                                            value: faaccounttitle.checked,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                faaccounttitle,
+                                                "checked",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "faaccounttitle.checked"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\r\n                                        " +
+                                              _vm._s(
+                                                faaccounttitle.account_title
+                                              ) +
+                                              "\r\n                                    "
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            }),
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-row",
+                            { staticClass: "pull-right mt-2" },
+                            [
+                              _c(
+                                "b-col",
+                                { attrs: { sm: "12" } },
+                                [
+                                  _c(
+                                    "b-button",
+                                    {
+                                      attrs: {
+                                        disabled:
+                                          _vm.forms.fixedassets.isSaving,
+                                        variant: "success"
+                                      },
+                                      on: { click: _vm.onSaveFA }
+                                    },
+                                    [
+                                      _vm.forms.fixedassets.isSaving
+                                        ? _c("b-spinner", {
+                                            attrs: {
+                                              small: "",
+                                              variant: "light",
+                                              label: "Spinning"
+                                            }
+                                          })
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      _c("i", { staticClass: "fa fa-check" }),
+                                      _vm._v(
+                                        "\r\n                                    Save Fixed Assets Configuration\r\n                                "
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
                             ],
                             1
                           )

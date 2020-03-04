@@ -127,8 +127,25 @@ Route::get('suppliercheck/{id}', 'Masterfiles\SuppliersController@checkIfUsed');
 
 // GENERAL CONFIGURATION
 Route::get('accountingperiod','Settings\AccountingPeriodController@index');
-Route::get('generalconfiguration','Settings\GeneralConfigurationController@index');
-Route::put('genconfcustomers', 'Settings\GeneralConfigurationController@customers'); // CUSTOMER SETTINGS
-Route::put('genconfsuppliers', 'Settings\GeneralConfigurationController@suppliers'); // SUPPLIER SETTINGS
-Route::put('genconfothers', 'Settings\GeneralConfigurationController@others'); // SUPPLIER SETTINGS
-Route::put('genconfinventory', 'Settings\GeneralConfigurationController@inventory'); // SUPPLIER SETTINGS
+Route::get('generalconfiguration','Settings\GeneralConfigurationController@index'); // CURRENT SETTINGS
+Route::get('companyinfo','Settings\GeneralConfigurationController@companyinfo'); // COMPANY INFO
+Route::get('generalconfigurationoptions','Settings\GeneralConfigurationController@optionsandselects'); // OPTIONS AND DEFAULTS
+Route::put('genconfcustomers', 'Settings\GeneralConfigurationController@customers'); // CUSTOMER 
+Route::put('genconfsuppliers', 'Settings\GeneralConfigurationController@suppliers'); // SUPPLIER 
+Route::put('genconfothers', 'Settings\GeneralConfigurationController@others'); // OTHER 
+Route::put('genconfinventory', 'Settings\GeneralConfigurationController@inventory'); // INVENTORY COMPUTATION
+Route::put('genconfsoa', 'Settings\GeneralConfigurationController@statementofaccount'); // RECEIVABLES
+Route::put('genconffa', 'Settings\GeneralConfigurationController@fixedassets'); // FIXED ASSETS
+Route::put('genconfcompany', 'Settings\GeneralConfigurationController@companyinfoset'); // FIXED ASSETS
+Route::put('genconfbir', 'Settings\GeneralConfigurationController@birinfoset'); // FIXED ASSETS
+
+
+
+Route::post('uploadlogo', function(Request $request){
+    if ($request->file->isValid()) {
+        $uploadedFile = $request->file; $uploadedPath = $request->path; $uploadedName = $request['name'];
+        $server_file_name=uniqid(''); $extension = pathinfo($uploadedName, PATHINFO_EXTENSION); $file_path=$server_file_name.'.'.$extension;
+        $uploadedFile->move($uploadedPath, $file_path); $completepath = $uploadedPath.'/'.$file_path;
+        return response(['status'=>'success', 'path'=>$completepath], 200);
+    }
+});

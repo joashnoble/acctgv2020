@@ -9,7 +9,283 @@
         </h5>
             <div>
             <b-tabs content-class="mt-3">
-                <b-tab title="Supplier" active>
+                <b-tab title="Company" Active>
+                    <b-form autocomplete="off">
+                        <b-row class="mb-2">
+                            <b-col sm="12">
+                            <span>Company Profile</span><br>
+                            <small><i>Note: Information entered will be used as heading for all PDF and Excel reports.</i> </small>
+                            </b-col>
+                        </b-row>
+                        <b-row> 
+                            <b-col sm="8">
+                                <b-row>
+                                    <b-col sm="6" >
+                                        <b-form-group>
+                                            <label class="required" for="company_name">Company Name</label>
+                                            <b-form-input
+                                                id="company_name"
+                                                v-model="forms.companyprofile.fields.company_name"
+                                                debounce="250"
+                                                type="text"
+                                                placeholder="Company Name">
+                                            </b-form-input>
+                                        </b-form-group>
+                                    </b-col>
+                                    <b-col sm="6" >
+                                        <b-form-group>
+                                            <label class="required" for="email_address">Email Address</label>
+                                            <b-form-input
+                                                id="email_address"
+                                                v-model="forms.companyprofile.fields.email_address"
+                                                debounce="250"
+                                                type="text"
+                                                placeholder="Email Address">
+                                            </b-form-input>
+                                        </b-form-group>
+                                    </b-col>
+                                </b-row> <!-- END OF ROW -->
+                                <b-row>
+                                    <b-col sm="12">
+                                        <b-form-group>
+                                            <label class="required" for="company_address">Company Address</label>
+                                            <b-form-input
+                                                id="company_address"
+                                                v-model="forms.companyprofile.fields.company_address"
+                                                debounce="250"
+                                                type="text"
+                                                placeholder="Company Address">
+                                            </b-form-input>
+                                        </b-form-group>
+                                    </b-col>
+                                </b-row>
+                                <b-row>
+                                    <b-col sm="6" >
+                                        <b-form-group>
+                                            <label class="required" for="mobile_no">Mobile Number</label>
+                                            <b-form-input
+                                                id="mobile_no"
+                                                v-model="forms.companyprofile.fields.mobile_no"
+                                                debounce="250"
+                                                type="text"
+                                                placeholder="Mobile Number">
+                                            </b-form-input>
+                                        </b-form-group>
+                                    </b-col>
+                                    <b-col sm="6" >
+                                        <b-form-group>
+                                            <label class="required" for="landline">Landline Number</label>
+                                            <b-form-input
+                                                id="landline"
+                                                v-model="forms.companyprofile.fields.landline"
+                                                debounce="250"
+                                                type="text"
+                                                placeholder="Landline">
+                                            </b-form-input>
+                                        </b-form-group>
+                                    </b-col>
+                                </b-row>
+                                <b-row>
+                                    <b-col sm="6">
+                                        <b-form-group>
+                                            <label> Business Structure</label>
+                                            <select2
+                                                ref="brand_id"
+                                                :allowClear="false"
+                                                :placeholder="''"
+                                                v-model="forms.companyprofile.fields.business_type"
+                                                :value="forms.companyprofile.fields.business_type"
+                                            >
+                                            <option value="1">Sole Proprietorship</option>
+                                            <option value="2">Partnership</option>
+                                            <option value="3">Corporation</option>
+                                        </select2>
+                                        </b-form-group>
+                                    </b-col>
+                                    <b-col sm="6">
+                                        <b-form-group>
+                                            <label class="required"> Tax Type </label>
+                                            <select2
+                                                ref="tax_type_id"
+                                                :allowClear="false"
+                                                :placeholder="'Select Tax Type'"
+                                                v-model="forms.companyprofile.fields.tax_type_id"
+                                            >
+                                                <option v-for="taxtype in options.taxtypes.items" :key="taxtype.tax_type_id" :value="taxtype.tax_type_id">{{taxtype.tax_type}}</option>
+                                            </select2>
+                                        </b-form-group>
+                                    </b-col>
+                                </b-row>
+                            </b-col>
+                            <b-col sm="4">
+                                <b-row>                                    
+                                    <b-col lg="12">
+                                        <label class="col-form-label">Logo :</label>
+                                    </b-col>
+                                </b-row>
+                                <b-row>
+                                    <b-col lg="12">
+                                        <div class="border" style="border:1px solid black;height: 200px;width: 200px;vertical-align: middle;">
+                                            <b-img :src="forms.companyprofile.fields.logo_path" style="object-fit: fill !important; height: 100%;width: 100%;"/>
+                                        </div>
+                                    </b-col>
+                                </b-row>
+                                <b-row class="mt-2">
+                                    <b-col lg="12">
+                                        <b-form-file v-on:change="onImageChange" ref="file" accept=".jpg, .png, .gif" plain style="display: none;"></b-form-file>
+                                        <b-btn variant="success" @click="$refs.file.$el.click()">
+                                            <i class="fa fa-file-image-o"></i> Browse
+                                        </b-btn>
+                                        <b-btn variant="danger" @click="$refs.file.reset(), forms.companyprofile.fields.logo_path = 'uploads/defaults/default-logo.jpg'">
+                                            <i class="fa fa-times"></i> Remove
+                                        </b-btn>
+                                    </b-col>
+                                </b-row>
+                            </b-col>
+                        </b-row>
+                        <b-row class="pull-right mt-2">
+                            <b-col sm="12">
+                                <b-button 
+                                    :disabled="forms.companyprofile.isSaving" 
+                                    variant="success" 
+                                    @click="onSaveFA">
+                                    <b-spinner v-if="forms.companyprofile.isSaving" small variant="light" label="Spinning"></b-spinner>
+                                    <i class="fa fa-check"></i>
+                                    Save Company Profile
+                                </b-button>
+                            </b-col>
+                        </b-row>
+                    </b-form>
+                </b-tab>
+                <b-tab title="BIR">
+                    <b-form autocomplete="off">
+                        <b-row class="mb-2">
+                            <b-col sm="12">
+                            <span>Bureau of Internal Revenue Profile</span><br>
+                            <small><i>Note: Information entered will be used for all generated BIR Forms.</i> </small>
+                            </b-col>
+                        </b-row>
+                        <b-row> 
+                            <b-col sm="12">
+                                <b-row>
+                                    <b-col sm="4" >
+                                        <b-form-group>
+                                            <label class="required" for="registered_to">Taxpayer's Name</label>
+                                            <b-form-input
+                                                id="registered_to"
+                                                v-model="forms.birform.fields.registered_to"
+                                                debounce="250"
+                                                type="text"
+                                                placeholder="Taxpayer's Name">
+                                            </b-form-input>
+                                        </b-form-group>
+                                    </b-col>
+                                    <b-col sm="8" >
+                                        <b-form-group>
+                                            <label class="required" for="registered_address">Registered Address </label>
+                                            <b-form-input
+                                                id="registered_address"
+                                                v-model="forms.birform.fields.registered_address"
+                                                debounce="250"
+                                                type="text"
+                                                placeholder="Registered Address">
+                                            </b-form-input>
+                                        </b-form-group>
+                                    </b-col>
+                                </b-row>
+                                <b-row>
+                                    <b-col sm="4" >
+                                        <b-form-group>
+                                            <label class="required" for="zip_code">Zip Code</label>
+                                            <b-form-input
+                                                id="zip_code"
+                                                v-model="forms.birform.fields.zip_code"
+                                                debounce="250"
+                                                type="text"
+                                                placeholder="Zip Code">
+                                            </b-form-input>
+                                        </b-form-group>
+                                    </b-col>
+                                    <b-col sm="4" >
+                                        <b-form-group>
+                                            <label class="required" for="telephone_no">Telephone No</label>
+                                            <b-form-input
+                                                id="telephone_no"
+                                                v-model="forms.birform.fields.telephone_no"
+                                                debounce="250"
+                                                type="text"
+                                                placeholder="Telephone No">
+                                            </b-form-input>
+                                        </b-form-group>
+                                    </b-col>
+                                    <b-col sm="4" >
+                                        <b-form-group>
+                                            <label class="required" for="tin_no">Tax Identification Number (TIN)</label>
+                                            <b-form-input
+                                                id="tin_no"
+                                                v-model="forms.birform.fields.tin_no"
+                                                debounce="250"
+                                                type="text"
+                                                placeholder="Tax Identification Number">
+                                            </b-form-input>
+                                        </b-form-group>
+                                    </b-col>
+                                </b-row>
+                                <b-row>
+                                    <b-col sm="4" >
+                                        <b-form-group>
+                                            <label class="required" for="rdo_no">Revenue District Office (RDO) Number</label>
+                                            <b-form-input
+                                                id="rdo_no"
+                                                v-model="forms.birform.fields.rdo_no"
+                                                debounce="250"
+                                                type="text"
+                                                placeholder="Revenue District Office Number">
+                                            </b-form-input>
+                                        </b-form-group>
+                                    </b-col>
+                                    <b-col sm="4" >
+                                        <b-form-group>
+                                            <label class="required" for="nature_of_business">Nature of Business</label>
+                                            <b-form-input
+                                                id="nature_of_business"
+                                                v-model="forms.birform.fields.nature_of_business"
+                                                debounce="250"
+                                                type="text"
+                                                placeholder="Nature of Business">
+                                            </b-form-input>
+                                        </b-form-group>
+                                    </b-col>
+                                    <b-col sm="4" >
+                                        <b-form-group>
+                                            <label class="required" for="industry_classification">Industry Classification</label>
+                                            <b-form-input
+                                                id="industry_classification"
+                                                v-model="forms.birform.fields.industry_classification"
+                                                debounce="250"
+                                                type="text"
+                                                placeholder="Industry Classification">
+                                            </b-form-input>
+                                        </b-form-group>
+                                    </b-col>
+                                </b-row>
+                            </b-col>
+                        </b-row>
+                        <b-row class="pull-right mt-2">
+                            <b-col sm="12">
+                                <b-button 
+                                    :disabled="forms.birform.isSaving" 
+                                    variant="success" 
+                                    @click="onSaveBir">
+                                    <b-spinner v-if="forms.birform.isSaving" small variant="light" label="Spinning"></b-spinner>
+                                    <i class="fa fa-check"></i>
+                                    Save Bureau of Internal Revenue Profile
+                                </b-button>
+                            </b-col>
+                        </b-row>
+                    </b-form>
+                </b-tab>   
+                <b-tab title="Supplier" >
                     <b-form autocomplete="off">
                         <b-row>
                         <b-col sm="6">
@@ -103,7 +379,6 @@
                         </b-row>
                     </b-form>
                 </b-tab>
-                <!-- END OF SUPPLIER INTEGRATION -->
                 <b-tab title="Customer">
                     <b-form autocomplete="off">
                          <b-row>
@@ -251,21 +526,6 @@
                             </b-col>
                         </b-row>
                     </b-form>
-                            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 </b-tab>
                 <b-tab title="Other Accounts" >
                     <b-form autocomplete="off">
@@ -400,6 +660,78 @@
                         </b-col>
                     </b-row> 
                 </b-tab>
+                <b-tab title="Statement of Accounts">
+                    <b-form autocomplete="off">
+                        <b-row class="mb-2">
+                            <b-col sm="12">
+                            <span>RECEIVABLES FROM CUSTOMERS</span><br>
+                            <small><i>Note: Please check the appropriate accounts to be included in the computation of Total of Receivables, Statement of Accounts, and Aging of Receivables</i> </small>
+                            </b-col>
+                        </b-row>
+                        <b-row> 
+                            <b-col sm="4" v-for="soaaccounttitle in options.soaacccounttitles.items" :key="soaaccounttitle.account_id" >
+                                <b-form-group >
+                                    <b-form-checkbox
+                                        size="sm" 
+                                        value="1"
+                                        v-model="soaaccounttitle.checked"  
+                                        unchecked-value="0"
+                                        >
+                                        {{soaaccounttitle.account_title}}
+                                    </b-form-checkbox>
+                                </b-form-group>
+                            </b-col>
+                        </b-row>
+                        <b-row class="pull-right mt-2">
+                            <b-col sm="12">
+                                <b-button 
+                                    :disabled="forms.statementofaccounts.isSaving" 
+                                    variant="success" 
+                                    @click="onSaveSOA">
+                                    <b-spinner v-if="forms.statementofaccounts.isSaving" small variant="light" label="Spinning"></b-spinner>
+                                    <i class="fa fa-check"></i>
+                                    Save Accounts Receivable Configuration
+                                </b-button>
+                            </b-col>
+                        </b-row>
+                    </b-form>
+                </b-tab>
+                <b-tab title="Fixed Assets">
+                    <b-form autocomplete="off">
+                        <b-row class="mb-2">
+                            <b-col sm="12">
+                            <span>FIXED ASSET AUTO GENERATION SETTINGS</span><br>
+                            <small><i>Note: Please check the appropriate Fixed Asset Accounts used in Product Management (Link to Debit Account) to be included in the Fixed Asset Generation in Purchase Journal</i> </small>
+                            </b-col>
+                        </b-row>
+                        <b-row> 
+                            <b-col sm="4" v-for="faaccounttitle in options.faacccounttitles.items" :key="faaccounttitle.account_id" >
+                                <b-form-group >
+                                    <b-form-checkbox
+                                        size="sm" 
+                                        value="1"
+                                        v-model="faaccounttitle.checked"  
+                                        unchecked-value="0"
+                                        >
+                                        {{faaccounttitle.account_title}}
+                                    </b-form-checkbox>
+                                </b-form-group>
+                            </b-col>
+                        </b-row>
+                        <b-row class="pull-right mt-2">
+                            <b-col sm="12">
+                                <b-button 
+                                    :disabled="forms.fixedassets.isSaving" 
+                                    variant="success" 
+                                    @click="onSaveFA">
+                                    <b-spinner v-if="forms.fixedassets.isSaving" small variant="light" label="Spinning"></b-spinner>
+                                    <i class="fa fa-check"></i>
+                                    Save Fixed Assets Configuration
+                                </b-button>
+                            </b-col>
+                        </b-row>
+                    </b-form>
+                </b-tab>
             </b-tabs>
             </div>
       </b-card>
@@ -413,6 +745,7 @@ export default {
     },
     data(){
         return {
+            image: new FormData,
             tables: {
                 accountingperiod :{
                     fields:[
@@ -451,6 +784,15 @@ export default {
             }, // END OF PAGINATION
             options:{
                 accounttitles : {
+                    items: []
+                },
+                soaacccounttitles :{
+                    items: []
+                },
+                faacccounttitles : {
+                    items: []
+                },
+                taxtypes : {
                     items: []
                 }
             },
@@ -492,20 +834,64 @@ export default {
                         dispatching_invoice_inventory : null,
                     }
                 },
+                statementofaccounts:{
+                    isSaving : false,
+                },
+                fixedassets:{
+                    isSaving : false,
+                },
+                companyprofile:{
+                    isSaving : false,
+                    fields : {
+                        company_name : null,
+                        company_address : null,
+                        email_address : null,
+                        mobile_no : null,
+                        landline : null,
+                        business_type : null,
+                        logo_path : '',
+                        tax_type_id : null,
+                    }
+                },
+                birform:{
+                    isSaving : false,
+                    fields : {
+                        registered_to : null,
+                        registered_address : null,
+                        zip_code : null,
+                        telephone_no : null,
+                        tin_no : null,
+                        rdo_no : null,
+                        nature_of_business : null,
+                        industry_classification : null,
+                    }
+                },
             }
         } // END OF DATA RETURN
     }, // END OF DATA
     created(){
         this.refreshSettings()
         this.fillTableList('accountingperiod');
+        this.fillOptionsList('taxtypes');
     }, // END OF CREATED
     methods:{
         async refreshSettings(){
-         await this.$http.get('/api/generalconfiguration',{
+         await this.$http.get('/api/companyinfo',{
+            headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }})
+            .then((response) => {
+                const records = response.data
+                this.forms.companyprofile.fields = records.data.companyinfo
+                this.forms.birform.fields = records.data.companyinfo
+            })
+            .catch(error => { if (!error.response) return console.log(error)
+            })
+         await this.$http.get('/api/generalconfigurationoptions',{
             headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }})
             .then((response) => {
                 const records = response.data
                 this.options.accounttitles.items = records.data.accounttitles
+                this.options.soaacccounttitles.items = records.data.soaacccounttitles
+                this.options.faacccounttitles.items = records.data.faacccounttitles
             })
             .catch(error => { if (!error.response) return console.log(error)
             })
@@ -543,10 +929,119 @@ export default {
                     } a++
                 }
           })
+        },
+        async onSaveSOA (){
+            this.forms.statementofaccounts.isSaving = true;
+            var tblft = this.options.soaacccounttitles.items.filter(ft =>ft.checked == "1") // FILTER, ONLY CHECKED WILL BE PUSHED
+            let objSelected = { selectedItems: tblft } // THEN PUSH AS ARRAY
+            await this.$http.put('api/genconfsoa', objSelected ,{
+                headers: { Authorization: 'Bearer ' + localStorage.getItem('token') } })
+            .then((response) => {  
+            this.forms.statementofaccounts.isSaving = false;
+            this.$notify({ type: 'success', group: 'notification', title: 'Success!',
+                text: 'The Statement of Accounts settings have been successfully modified.'
+            })
+            }).catch(error => {
+                this.forms.statementofaccounts.isSaving = false;
+                if (!error.response) return
+                const errors = error.response.data.errors
+                var a = 0
+                for (var key in errors) {
+                    if(a == 0){
+                    this.focusElement(key, is_tab)
+                    this.$notify({ type: 'error', group: 'notification', title: 'Error!', text: errors[key][0]})
+                    } a++
+                }
+            })
+        },
+        async onSaveFA (){
+            this.forms.fixedassets.isSaving = true;
+            var tblft = this.options.faacccounttitles.items.filter(ft =>ft.checked == "1") // FILTER, ONLY CHECKED WILL BE PUSHED
+            let objSelected = { selectedItems: tblft } // THEN PUSH AS ARRAY
+            await this.$http.put('api/genconffa', objSelected ,{
+                headers: { Authorization: 'Bearer ' + localStorage.getItem('token') } })
+            .then((response) => {  
+            this.forms.fixedassets.isSaving = false;
+            this.$notify({ type: 'success', group: 'notification', title: 'Success!',
+                text: 'The Fixed Asset Accounts settings have been successfully modified.'
+            })
+            }).catch(error => {
+                this.forms.fixedassets.isSaving = false;
+                if (!error.response) return
+                const errors = error.response.data.errors
+                var a = 0
+                for (var key in errors) {
+                    if(a == 0){
+                    this.focusElement(key, is_tab)
+                    this.$notify({ type: 'error', group: 'notification', title: 'Error!', text: errors[key][0]})
+                    } a++
+                }
+            })
+        },
+        async  onImageChange(e) {
+            let files = e.target.files || e.dataTransfer.files;
+            if (!files.length)  return;
+            this.image.append('file', e.target.files[0])
+            this.image.append('path', 'uploads/logo') // Directory Path
+            this.image.append('name', e.target.files[0].name)
 
-
-
-
+            await this.$http.post('/api/uploadlogo', this.image, {
+                headers: {
+                        Authorization: 'Bearer ' + localStorage.getItem('token'),
+                        'Content-Type' : 'multipart/form-data'
+                    }
+                })
+            .then((response) => {
+                this.forms.companyprofile.fields.logo_path = response.data.path
+            })
+            .catch(error => {
+                if (!error.response) return
+                console.log(error)
+            })
+        },
+        async onSaveFA (){
+            this.forms.companyprofile.isSaving = true;
+            this.$http.put('api/genconfcompany', this.forms.companyprofile.fields ,{
+                headers: { Authorization: 'Bearer ' + localStorage.getItem('token') } })
+          .then((response) => {  
+            this.forms.companyprofile.isSaving = false;
+            this.$notify({ type: 'success', group: 'notification', title: 'Success!',
+                text: 'The Company Profile settings have been successfully modified.'
+            })
+            }).catch(error => {
+                this.forms.fixedassets.isSaving = false;
+                if (!error.response) return
+                const errors = error.response.data.errors
+                var a = 0
+                for (var key in errors) {
+                    if(a == 0){
+                    this.focusElement(key, is_tab)
+                    this.$notify({ type: 'error', group: 'notification', title: 'Error!', text: errors[key][0]})
+                    } a++
+                }
+            })
+        },
+        async onSaveBir (){
+            this.forms.birform.isSaving = true;
+            this.$http.put('api/genconfbir', this.forms.birform.fields ,{
+                headers: { Authorization: 'Bearer ' + localStorage.getItem('token') } })
+          .then((response) => {  
+            this.forms.birform.isSaving = false;
+            this.$notify({ type: 'success', group: 'notification', title: 'Success!',
+                text: 'The Bir Form settings have been successfully modified.'
+            })
+            }).catch(error => {
+                this.forms.fixedassets.isSaving = false;
+                if (!error.response) return
+                const errors = error.response.data.errors
+                var a = 0
+                for (var key in errors) {
+                    if(a == 0){
+                    this.focusElement(key, is_tab)
+                    this.$notify({ type: 'error', group: 'notification', title: 'Error!', text: errors[key][0]})
+                    } a++
+                }
+            })
         },
     } // END OF METHODS
 }// END OF EXPORT 
