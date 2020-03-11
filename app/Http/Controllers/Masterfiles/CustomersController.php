@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Models\Masterfiles\Customer;
 use App\Http\Resources\Reference;
-
+use DB;
 class CustomersController extends Controller
 {
 
@@ -79,6 +79,20 @@ class CustomersController extends Controller
         return $exists;
     }
 
+    public function  journalcustomers(){
+        $customers = Customer::select(
+            DB::raw("CONCAT('C-',customer_id) as particular_id"),
+            'customer_name',
+            )
+            ->orderBy('customers.customer_name','ASC')
+            ->where('is_active',TRUE)
+            ->where('is_deleted',FALSE)
+            ;
+            return ( new Reference($customers->get()))
+            ->response()
+            ->setStatusCode(200);
+    }
+
     public function GetCustomers($id=null) // List only, without on hand
     {
         $customers = Customer::select(
@@ -91,6 +105,7 @@ class CustomersController extends Controller
             'contact_no',
             'tin_no',
             )
+            ->orderBy('customers.customer_name','ASC')
             ->where('is_active',TRUE)
             ->where('is_deleted',FALSE)
             ;

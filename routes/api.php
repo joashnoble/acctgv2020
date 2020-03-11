@@ -11,6 +11,22 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// FINANCING
+Route::get('journalcustomers','Masterfiles\CustomersController@journalCustomers'); // MINIMAL LIST, USED FOR SELECT2 OPTIONS
+Route::get('journalsuppliers','Masterfiles\SuppliersController@journalSuppliers'); // MINIMAL LIST, USED FOR SELECT2 OPTIONS
+
+// GENERAL JOURNAL
+
+// GENERAL  JOURNAL
+Route::get('generaljournals','Financing\GeneralJournalController@index');
+Route::get('generaljournal_files/{id}', 'Financing\GeneralJournalController@showFiles');
+Route::post('generaljournal', 'Financing\GeneralJournalController@create');
+Route::put('canceljournal/{id}', 'Financing\GeneralJournalController@cancelJournal');
+Route::post('accountingperiodcheck', 'Financing\GeneralJournalController@checkPeriod'); // PENDING
+
+
+
+
 // REFERENCES
 
 // ACCOUNT TYPES

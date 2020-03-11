@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Models\Masterfiles\Supplier;
 use App\Http\Resources\Reference;
-
+use DB;
 class SuppliersController extends Controller
 {
 
@@ -82,6 +82,20 @@ class SuppliersController extends Controller
         return $exists;
     }
 
+    public function journalSuppliers(){
+        $suppliers = Supplier::select(
+            DB::raw("CONCAT('S-',supplier_id) as particular_id"),
+            'supplier_name',
+            )
+            ->orderBy('suppliers.supplier_name','ASC')
+            ->where('suppliers.is_active',TRUE)
+            ->where('suppliers.is_deleted',FALSE);
+
+            return ( new Reference($suppliers->get()))
+            ->response()
+            ->setStatusCode(200);
+    }
+
     public function GetSuppliers($id=null) // List only, without on hand
     {
         $suppliers = Supplier::select(
@@ -97,8 +111,10 @@ class SuppliersController extends Controller
             'tax_output',
             'posted_by_user',
             )
+            ->orderBy('suppliers.supplier_name','ASC')
             ->where('suppliers.is_active',TRUE)
             ->where('suppliers.is_deleted',FALSE)
+            
             ;
 
             if($id!=null){ 

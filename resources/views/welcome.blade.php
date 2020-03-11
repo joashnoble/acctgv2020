@@ -24,7 +24,11 @@
                 {{-- <customers></customers> --}}
                 {{-- <salespersons></salespersons> --}}
                 {{-- <accounttitles></accounttitles> --}}
-                <generalconfiguration></generalconfiguration>
+                {{-- <generalconfiguration></generalconfiguration> --}}
+
+
+                <generaljournal></generaljournal>
+
             </div>
         </div>
         <script src="{{ asset('js/app.js') }}"></script>
